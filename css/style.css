@@ -16,7 +16,8 @@ body
 
 .header
 {
-    background: whitesmoke;
+    background: green;
+    border:3px solid blue;
 }
 
 .header img
