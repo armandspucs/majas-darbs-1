@@ -1,1 +1,49 @@
 /* kopējie stili*/
+
+body
+{
+    background:grey;
+}
+
+.wrap
+{
+    width: 1000px;
+    background: white;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 10px;
+}
+
+.header
+{
+    background: whitesmoke;
+}
+
+.header img
+{
+    width: 50px;
+}
+
+.header h2
+{
+    display: inline-block;
+}
+
+.back_btn
+{
+    width: 50px;
+}
+
+
+table td
+{
+    border:1px solid black;
+}
+
+.button
+{
+    background: blue;
+    color: white;
+    padding: 5px;
+}
+
