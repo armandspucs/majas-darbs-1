@@ -3,20 +3,18 @@
     <head>
         <meta charset="UTF-8" />
         <title>Kabineti</title>
+		<link href="css/style.css" rel="stylesheet" />
+		<style type="text/css">
+			td > input {
+				width: 100%;
+			}
+		</style>
+		<script src="js/block.js"></script>
+		<script src="js/head_food.js"></script>
     </head>
-    <style type="text/css">
-        td > input {
-            width: 100%;
-        }
-    </style>
-    <script src="js/block.js"></script>
     <body>
+		<script>head("Kabinetu saraksts");</script>
         <table border="1">
-            <tr>
-                <caption>
-                    Atrašānās vieta
-                </caption>
-            </tr>
             <thead>
                 <tr>
                     <td>
@@ -65,5 +63,6 @@
                 </tr>
             </tbody>
         </table>
+		<script>foot();</script>
     </body>
 </html>
