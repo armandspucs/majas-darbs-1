@@ -35,7 +35,7 @@ body
 }
 
 
-table td
+table td, table th
 {
     border:1px solid grey;
 }
