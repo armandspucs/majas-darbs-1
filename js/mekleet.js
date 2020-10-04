@@ -16,5 +16,5 @@ function meklet(lauks) {
       }       
     }
   }
-  
+
   

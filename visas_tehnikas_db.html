@@ -67,18 +67,19 @@
     </style>
 </head>
 
-<body>
+<body>  
     <script> head("<h2>Visas tehnikas datubāze<h2>");</script>
     <!-- -->
     <div class="row">
         <div class="col">
             atlasīt tehniku
-            <select>
+            <select id="mySelect">
                 <option disabled selected hidden></option>
-                <option>printeris</option>
-                <option>dators</option>
-                <option>tumbas</option>
+                <option value="printeris">printeris</option>
+                <option value="dators" >dators</option>
+                <option value="tumbas" >tumbas</option>
             </select>
+           
         </div>
         <div class="col">
             <input type="text" placeholder="Mekēt pec inventāra numura" id="myInput" onkeyup="meklet(1)">
