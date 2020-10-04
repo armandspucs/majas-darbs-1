@@ -2,7 +2,7 @@
 function head(title){
 	document.write("\t<div class=\"wrap\">\n");
 	document.write("\t\t<div class=\"header\">\n");
-	document.write("\t\t\t<img src=\"ing/logo.png\" \>\n");
+	document.write("\t\t\t<img src=\"img/logo.png\" \>\n");
 	document.write("\t\t\t<h2>Datortehnikas uzskaites sistēma</h2>\n");
 	document.write("\t\t\t<hr>\n");
 	document.write("\t</div>\n\n");
