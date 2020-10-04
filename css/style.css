@@ -1,1 +1,24 @@
 /* kopējie stili*/
+
+body{
+    background: gray
+}
+
+.wrap{
+    width"1000px;
+    background:white;
+    margin-left:auto;
+    margin-right:auto;
+    padding:10px;
+}
+
+.header{
+    background:whitesmoke;
+}
+
+.header img{
+    width:50px;
+}
+.header h2{
+    dispay: inline-block;
+}
