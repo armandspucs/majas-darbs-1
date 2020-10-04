@@ -11,3 +11,11 @@ function head(title){
 	document.write("\t\tAtpakaļ\n");
 	document.write("\t\t<h4>"+title+"</h4>\n\n");
 }
+
+function foot(){
+	document.write("\t\t<div class=\"footer\">\n");
+	document.write("\t\t\t<hr>\n");
+	document.write("\t\t\t(c) 2020 Sia \"Kafijas automāts\"\n");
+	document.write("\t\t</div>\n\n");
+	document.write("\t</div><!--beidzas wrap-->\n");
+}
