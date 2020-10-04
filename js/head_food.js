@@ -19,3 +19,4 @@ function foot(){
 	document.write("\t\t</div>\n\n");
 	document.write("\t</div><!--beidzas wrap-->\n");
 }
+
