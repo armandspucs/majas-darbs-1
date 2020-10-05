@@ -7,9 +7,14 @@ function head(title){
 	document.write("\t\t\t<hr>\n");
 	document.write("\t</div>\n\n");
 	document.write("\t<div class=\"content\">\n");
-	document.write("\t\t<img class=\"back_btn\" src=\"img/back.png\">\n");
-	document.write("\t\tAtpakaļ\n");
-	document.write("\t\t<h4>"+title+"</h4>\n\n");
+	if (title!=""){
+		document.write("\t\t<a href=\"#\" onclick=\"history.go(-1)\">\n");
+		document.write("\t\t<img class=\"back_btn\" src=\"img/back.png\">\n");
+		document.write("\t\tAtpakaļ\n");
+		document.write("\t\t</a>\n\n");
+		document.write("\t\t<h4>"+title+"</h4>\n\n");
+
+	}
 }
 
 function foot(){
