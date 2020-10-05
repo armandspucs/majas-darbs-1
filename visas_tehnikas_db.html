@@ -58,16 +58,17 @@
             margin-right: 15px;
             margin-left: 15px;
         }
+
         .col {
             position: relative;
-            width:33%;
+            width: 33%;
             padding-right: 15px;
             padding-left: 15px;
         }
     </style>
 </head>
 
-<body>  
+<body>
     <script> head("<h2>Visas tehnikas datubāze<h2>");</script>
     <!-- -->
     <div class="row">
@@ -76,10 +77,20 @@
             <select id="mySelect">
                 <option disabled selected hidden></option>
                 <option value="printeris">printeris</option>
-                <option value="dators" >dators</option>
-                <option value="tumbas" >tumbas</option>
+                <option value="dators">dators</option>
+                <option value="tumbas">tumbas</option>
             </select>
-           
+            <!-- *********************** -->
+            <button type="button" onclick="myFunction()" >atlasīt</button>
+            <p id="demo"></p>
+            <script>
+                function myFunction() {
+                    var x = document.getElementById("mySelect").value;
+                    document.getElementById("demo").innerHTML = x;
+                }
+            </script>
+            <!--*************************** -->
+
         </div>
         <div class="col">
             <input type="text" placeholder="Mekēt pec inventāra numura" id="myInput" onkeyup="meklet(1)">
