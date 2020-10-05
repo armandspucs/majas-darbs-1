@@ -46,3 +46,15 @@ table td, table th
     color: white;
     padding: 5px;
 }
+
+.noborder th, .noborder td
+{
+	border:none;
+	padding: 5px;
+
+}
+.noborder td input
+{
+	width:100%;
+
+}
