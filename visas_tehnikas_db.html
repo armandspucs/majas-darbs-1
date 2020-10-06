@@ -76,6 +76,7 @@
             atlasīt tehniku
             <select id="mySelect">
                 <option disabled selected hidden></option>
+                <option value="">Viss saraksts</option>
                 <option value="printeris">printeris</option>
                 <option value="dators">dators</option>
                 <option value="tumbas">tumbas</option>
@@ -87,6 +88,7 @@
                 function myFunction() {
                     var x = document.getElementById("mySelect").value;
                     document.getElementById("demo").innerHTML = x;
+                    meklet(0,'mySelect');
                 }
             </script>
             <p id="demo"></p>
@@ -94,7 +96,7 @@
 
         </div>
         <div class="col">
-            <input type="text" placeholder="Mekēt pec inventāra numura" id="myInput" onkeyup="meklet(1)">
+            <input type="text" placeholder="Mekēt pec inventāra numura" id="myInput" onkeyup="meklet(1,'myInput')">
         </div>
         <div class="col">
             <button type="button">pievienot tehniku</button>

@@ -1,8 +1,9 @@
-function meklet(lauks) {
+function meklet(lauks,myId) {
   /* informācijas meklēšana tabulā  pēc konkrēta lauka, jeb kolonnas 
   skatīt visas_tehnikas_db.html*/
     var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput");
+   // input = document.getElementById("myInput");
+   input = document.getElementById(myId);
     filter = input.value.toUpperCase();
     console.log(filter);
     table = document.getElementById("myTable");
@@ -19,5 +20,3 @@ function meklet(lauks) {
       }       
     }
   }
-
-  
