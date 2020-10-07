@@ -2,68 +2,36 @@
 <html>
     <head>
 		<meta charset="UTF-8" />
-		<title>Datoru uzskaites sistēma-Kabineti</title>
+		<title>Datoru uzskaites sistēma-Klases tehnika</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="js/head_food.js"></script>
+		<script src="js/angular.js"></script>
 		<link href="css/style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="js/head_food.js"></script>
 	<script>
-		var json='{'+
-				'"klase":"201",'+
-				'"dati":['+
-				   '{'+
-					  '"name": "datori",'+
-					  '"count": 3,'+
-					  '"bojats": 0,'+
-					  '"desk": ""'+
-				   '},'+
-			   '{'+
-					  '"name": "Printeris",'+
-					  '"count": 1,'+
-					  '"bojats": "0",'+
-					  '"desk": "tīkla"'+
-				   '},'+
-				   '{'+
-					  '"name": "Projektors",'+
-					  '"count": 1,'+
-					  '"bojats": 1,'+
-					  '"desk": "2 HDMI"'+
-				   '},'+
-				   '{'+
-					  '"name": "Skandas",'+
-					  '"count": 1,'+
-					  '"bojats": "0",'+
-					  '"desk": ""'+
-				   '},'+
-				   '{'+
-					  '"name": "Rūteris",'+
-					  '"count": 1,'+
-					  '"bojats": 0,'+
-					  '"desk": "Parole:fkjbvjdf "'+
-				   '}'+
-				   ']'+
-				'}';
-			var obj = JSON.parse(json); 
+		var json='{"klase":"201", "dati":[{"name":"datori","count":3,"bojats":0,"desk":""},{"name":"Printeris","count":1,"bojats":"0","desk":"tīkla"}, {"name":"Projektors","count":1,"bojats":1,"desk":"2HDMI"}, {"name":"Skandas","count":1,"bojats":"0","desk":""}, {"name":"Rūteris","count":1,"bojats":0,"desk":"Parole:fkjbvjdf"}]}';
+		var obj = JSON.parse(json); 
 	</script>
 	</head>
-    <body>
-		<script>head(obj.klase+". klasē pieejamā tehnika");</script>
-		<table>
+	<body>
+	<div ng-app="myApp" ng-controller="myCtrl"><!-- start angular -->
+	<script>head(obj.klase+". klasē pieejamā tehnika");</script>
+			<table>
+				<tbody ng-repeat="i in data">
+					<tr>
+						<td>{{i.name}}</td>
+						<td>{{i.count}}</td>
+						<td>{{i.bojats}}</td>
+						<td>{{i.desk}}</td>
+					</tr>
+				</tbody>
+				</table>
+			</div>
 		<script>
-		for (i in obj.dati){
-document.write ("\t\t<tr>\n");
-document.write ("\t\t\t<td>"+obj.dati[i].name+"</td>\n");
-document.write ("\t\t\t<td>"+obj.dati[i].count+"</td>\n");
-document.write ("\t\t\t<td>"+obj.dati[i].bojats+"</td>\n");
-document.write ("\t\t\t<td>"+obj.dati[i].desk+"</td>\n");
-document.write ("\t\t</tr>\n");
-		}
-
+			foot();
+			Ctrl(obj);
 		</script>
-		</table>
-		</div>
-	<script>foot();
-	</script>
 
-	</script>
+	</div><!-- end angular -->
     </body>
 </html>
