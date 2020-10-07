@@ -1,134 +1,128 @@
 /* kopējie stili*/
 
-body
-{
-    background:grey;
+body {
+    background: grey;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.wrap
-{
+.wrap {
     width: 1000px;
     background: white;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 10px;
 }
 
-.header
-{
-    
-}
+.header {}
 
-.header img
-{
+.header img {
     width: 50px;
 }
 
-.header h2
-{
+.header h2 {
     display: inline-block;
 }
 
-.back_btn
-{
+.back_btn {
     width: 50px;
 }
 
-
-table td, table th
-{
-    border:1px solid grey;
+table td,
+table th {
+    border: 1px solid grey;
 }
 
-.button
-{
+.button {
     background: blue;
     color: white;
     padding: 5px;
 }
 
-.noborder th, .noborder td
-{
-	border:none;
-	padding: 5px;
-
+.noborder th,
+.noborder td {
+    border: none;
+    padding: 5px;
 }
-.noborder td input
-{
-	width:100%;
 
+.noborder td input {
+    width: 100%;
 }
+
 
 /*---Andris uzdarbojas-------------------------------- */
-    * {
-        box-sizing: border-box;
-    }
-    select {
-        background-position: 10px 10px;
-        background-repeat: no-repeat;
-        width: 100%;
-        font-size: 16px;
-        padding: 5px 5px 5px 5px;
-        border: 1px solid #ddd;
-        margin-bottom: 12px;
-    }
-    button{
-        background-position: 10px 10px;
-        background-repeat: no-repeat;
-        width: 100%;
-        font-size: 16px;
-        padding: 5px 5px 5px 5px;
-        border: 1px solid rgb(0, 0, 0);
-        margin-bottom: 12px;
-    }
-    #myInput {
-        background-position: 10px 10px;
-        background-repeat: no-repeat;
-        width: 100%;
-        font-size: 16px;
-        padding: 5px 5px 5px 5px;
-        border: 1px solid #ddd;
-        margin-bottom: 12px;
-    }
 
-    #myTable {
-        border-collapse: collapse;
-        width: 100%;
-        border: 1px solid #ddd;
-        font-size: 18px;
-    }
+* {
+    box-sizing: border-box;
+}
 
-    #myTable th,
-    #myTable td {
-        text-align: left;
-        padding: 12px;
-    }
+select {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 14px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
 
-    #myTable tr {
-        border-bottom: 1px solid #ddd;
-    }
+button {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 14px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid rgb(0, 0, 0);
+    margin-bottom: 12px;
+}
 
-    #myTable tr.header,
-    #myTable tr:hover {
-        background-color: #f1f1f1;
-    }
+#myInput {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 14px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
 
+#myTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 18px;
+}
 
+#myTable th,
+#myTable td {
+    text-align: left;
+    padding: 14px;
+}
 
-    .row {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-right: 15px;
-        margin-left: 15px;
-    }
+#myTable tr {
+    border-bottom: 1px solid #ddd;
+}
 
-    .col {
-        position: relative;
-        width: 33%;
-        padding-right: 15px;
-        padding-left: 15px;
-    }
+#myTable tr.header,
+#myTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.colUz3 {
+    position: relative;
+    width: 33%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 
 /*-----------------------------------------------------*/

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -12,10 +13,12 @@
 </head>
 
 <body>
-    <script> head("<h2>Visas tehnikas datubāze<h2>");</script>
+    <script>
+        head("<h2>Visas tehnikas datubāze<h2>");
+    </script>
     <!-- -->
     <div class="row">
-        <div class="col">
+        <div class="colUz3">
             <select id="mySelect">
                 <option disabled selected hidden></option>
                 <option value="">Viss saraksts</option>
@@ -28,18 +31,18 @@
             <script>
                 function myFunction() {
                     //var x = document.getElementById("mySelect").value;
-                   // document.getElementById("demo").innerHTML = x;
-                    meklet(0,'mySelect');
+                    // document.getElementById("demo").innerHTML = x;
+                    meklet(0, 'mySelect');
                 }
             </script>
             <p id="demo"></p>
             <!--*************************** -->
         </div>
 
-        <div class="col">
+        <div class="colUz3">
             <input type="text" placeholder="Mekēt pec inventāra numura" id="myInput" onkeyup="meklet(1,'myInput')">
         </div>
-        <div class="col">
+        <div class="colUz3">
             <button type="button">pievienot tehniku</button>
         </div>
     </div>
@@ -81,7 +84,9 @@
         </tbody>
     </table>
     <!-- -->
-    <script>  foot();</script>
+    <script>
+        foot();
+    </script>
 </body>
 
 </html>
