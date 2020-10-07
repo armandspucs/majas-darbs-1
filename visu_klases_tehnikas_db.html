@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Skolas datortehnikas uzskaite - Kabinetu tehnika</title>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+		<script src="js/head_food.js"></script>
+	</head>
+	<body>
+		<script>head("Klasēs pieejamā tehnika");</script>
+	<div class="filtr">
+	<hr>
+		<table class="noborder">
+			<tr>
+				<td>Meklēt</td>
+				<td><input type="text" placeholder="Mekēt" id="myInput" onkeyup="meklet(1,'myInput')"></td>
+				<td>&nbsp;</td>
+				<td>ir datori</td>
+				<td><input type="checkbox" id=""></td>
+				<td>&nbsp;</td>
+				<td>ir skandas</td>
+				<td><input type="checkbox" id=""></td>
+			</tr>
+			<tr>
+				<td colspan=3>&nbsp;</td>
+				<td>ir projektors</td>
+				<td><input type="checkbox" id=""></td>
+				<td>&nbsp;</td>
+				<td>ir rūteris</td>
+				<td><input type="checkbox" id=""></td>
+			</tr>
+		</table>
+		<hr>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>Kab. Nr.</th>
+				<th>Projektors</th>
+				<th>Datoru skaits</th>
+				<th>Skandas</th>
+				<th>Sīkāka informācija</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td onclick="window.location.href ='klases_tehnikas_db.html?k=12'">14.</td>
+				<td>printeris</td>
+				<td>1239-554</td>
+				<td>-</td>
+				<td>sīkāk</td>
+			</tr>
+		</tbody>
+	</table>
+	<script>  foot();</script>
+</body>
+
+</html>
