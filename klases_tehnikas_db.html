@@ -4,7 +4,6 @@
         <meta charset="UTF-8" />
         <title>Kabineti</title>
 		<link href="css/style.css" rel="stylesheet" />
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 		<script src="js/head_food.js"></script>
 	<script>
 		var json='{'+
@@ -12,95 +11,32 @@
 				'"dati":['+
 				   '{'+
 					  '"name": "datori",'+
-					  '"invertars": "1239-540",'+
-					  '"bojats": "0"'+
+					  '"count": 3,'+
+					  '"bojats": 0,'+
+					  '"desk": ""'+
 				   '},'+
-				   '{'+
-					  '"name": "datori",'+
-					  '"invertars": "1239-541",'+
-					  '"bojats": "0"'+
-				   '},'+
-				   '{'+
-					  '"name": "datori",'+
-					  '"invertars": "1239-542",'+
-					  '"bojats": "0"'+
-				   '},'+
-				   '{'+
-					  '"name": "datori",'+
-					  '"invertars": "1239-543",'+
-					  '"bojats": "0"'+
-				   '},'+
-				   '{'+
-					  '"name": "datori",'+
-					  '"invertars": "1239-544",'+
-					  '"bojats": "0"'+
-				   '},'+
-				   '{'+
-					  '"name": "datori",'+
-					  '"invertars": "1239-545",'+
-					  '"bojats": "0"'+
-				   '},'+
-				   '{'+
-					  '"name": "datori",'+
-					  '"invertars": "1239-546",'+
-					  '"bojats": "0"'+
-				   '},'+
-				   '{'+
-					  '"name": "datori",'+
-					  '"invertars": "1239-547",'+
-					  '"bojats": "0"'+
-				   '},'+
-				   '{'+
-					  '"name": "datori",'+
-					  '"invertars": "1239-548",'+
-					  '"bojats": "0"'+
-				   '},'+
-				   '{'+
-					  '"name": "datori",'+
-					  '"invertars": "1239-550",'+
-					  '"bojats": "0"'+
-				   '},'+
-				   '{'+
-					  '"name": "datori",'+
-					  '"invertars": "1239-551",'+
-					  '"bojats": "0"'+
-				   '},'+
-				   '{'+
-					  '"name": "datori",'+
-					  '"invertars": "1239-552",'+
-					  '"bojats": "0"'+
-				   '},'+
-				   '{'+
-					  '"name": "datori",'+
-					  '"invertars": "1239-553",'+
-					  '"bojats": "0"'+
-				   '},'+
-				   '{'+
-					  '"name": "datori",'+
-					  '"invertars": "1239-554",'+
-					  '"bojats": 1'+
-				   '},'+
-				   '{'+
+			   '{'+
 					  '"name": "Printeris",'+
-					  '"invertars": "1229-540",'+
+					  '"count": 1,'+
 					  '"bojats": "0",'+
 					  '"desk": "tīkla"'+
 				   '},'+
 				   '{'+
 					  '"name": "Projektors",'+
-					  '"invertars": "1219-540",'+
-					  '"bojats": "0",'+
+					  '"count": 1,'+
+					  '"bojats": 1,'+
 					  '"desk": "2 HDMI"'+
 				   '},'+
 				   '{'+
 					  '"name": "Skandas",'+
-					  '"invertars": "1259-540",'+
-					  '"bojats": "0"'+
+					  '"count": 1,'+
+					  '"bojats": "0",'+
+					  '"desk": ""'+
 				   '},'+
 				   '{'+
 					  '"name": "Rūteris",'+
-					  '"invertars": "1209-540",'+
-					  '"bojats": "0",'+
+					  '"count": 1,'+
+					  '"bojats": 0,'+
 					  '"desk": "Parole:fkjbvjdf "'+
 				   '}'+
 				   ']'+
@@ -112,15 +48,12 @@
 		<script>head(obj.klase+". klasē pieejamā tehnika");</script>
 		<table>
 		<script>
-		//alert(obj.dati.count);
 		for (i in obj.dati){
-			var result =   obj.dati.filter(value => value.name === 'datori').length;
-			alert(result);
 document.write ("\t\t<tr>\n");
 document.write ("\t\t\t<td>"+obj.dati[i].name+"</td>\n");
-document.write ("\t\t\t<td>"+obj.dati[i].invertars+"</td>\n");
+document.write ("\t\t\t<td>"+obj.dati[i].count+"</td>\n");
 document.write ("\t\t\t<td>"+obj.dati[i].bojats+"</td>\n");
-document.write ("\t\t\t<td>"+obj.dati[i].desc+"</td>\n");
+document.write ("\t\t\t<td>"+obj.dati[i].desk+"</td>\n");
 document.write ("\t\t</tr>\n");
 		}
 
