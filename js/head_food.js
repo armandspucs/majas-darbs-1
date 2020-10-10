@@ -12,7 +12,7 @@ function head(title) {
         document.write("\t\t\t\t\t<img class=\"back_btn\" src=\"img/back.png\">\n");
         document.write("\t\t\t\t\tAtpakaļ\n");
         document.write("\t\t\t\t</a>\n\n");
-        document.write("\t\t\t\t<h4>" + title + "</h4>\n\n");
+        document.write("\t\t\t\t<h4 id='h4b'>" + title + "</h4>\n\n");
     }
 }
 
