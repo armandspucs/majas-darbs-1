@@ -10,14 +10,14 @@
 		<script src="js/angular.js"></script>
 		<link href="css/style.css" rel="stylesheet" />
 		<script>
-			var json='{"dati":[{"kab":"201","proj":1,"datori":3,"print":1,"skandas":1,"ruteris":1}]}';
+			var json='{"dati":[{"kab":"201","proj":1,"datori":3,"print":1,"skandas":1,"ruteris":1},{"kab":"202","proj":1,"datori":15,"print":1,"skandas":0,"ruteris":0}]}';
 			var obj = JSON.parse(json); 
 		</script>
 	</head>
 	<body>
 		<script>head("Klasēs pieejamā tehnika");</script>
 				<hr>
-				<div  ng-app="myApp" ><!-- sākas angular -->
+				<div ng-app="myApp" ng-controller="myCtrl"><!-- start angular -->
 					
 				<table class="noborder">
 					<tbody>
@@ -52,9 +52,9 @@
 							<th>Sīkāka informācija</th>
 						</tr>
 					</thead>
-					<tbody ng-controller="myCtrl" ng-repeat="i in dati">
-						<tr>
-							<td onclick="window.location.href ='klases_tehnikas_db.html?k={{i.kab}}'">{{i.kab}}</td>
+					<tbody ng-repeat="i in dati">
+						<tr class="link" ng-click="go('klases_tehnikas_db.html?k=',i.kab)">
+							<td>{{i.kab}}</td>
 							<td>{{i.proj}}111</td>
 							<td>{{i.datori}}</td>
 							<td>{{i.skandas}}</td>
@@ -62,7 +62,7 @@
 						</tr>
 					</tbody>
 				</table>
-				</div>
+				</div><!-- beidzas angular -->
 			<script>
 				//alert(obj.dati[0].datori);
 				foot();
