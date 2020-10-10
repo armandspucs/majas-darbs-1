@@ -10,22 +10,21 @@
 	<body>
     <!-- <h1>Datoru uzskaites sistēma<h1> -->
 	<script>head("");</script>
-		<table class="noborder">
-			<tr>
-				<td>Lietotāja vārds</td>
-				<td><input type="text"></td>
-				<td><input type="submit" value="Kabinetos pielietojamā tehnika" onclick="window.location.href ='visu_klases_tehnikas_db.html'"></td>
-			</tr>
-			<tr>
-				<td>Parole</td>
-				<td><input type="password" name=""></td>
-				<td><input type="submit" value="Ziņot par problēmu ar tehniku" onclick="window.location.href =''"></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" value="Pierakstīties" onclick="window.location.href ='admin.html'"></td>
-			</tr>
-		</table>
+	<br>
+		<div class="flex">
+			<div>
+				<label>Lietotāja vārds</label><br><br>
+				<label>Parole</label><br><br>
+			</div><div>
+				<input type="text"><br><br>
+				<input type="password"><br><br>
+				<a class="button" href="admin.html">Pierakstīties</a>
+			</div>
+			<div>
+				<a class="button" href="visu_klases_tehnikas_db.html">Kabinetos pielietojamā tehnika</a><br><br>
+				<a class="button" href="visu_klases_tehnikas_db.html">Ziņot par problēmu ar tehniku</a>
+			</div>
+		</div>
 		<script>foot();</script>
 	</body>
 </html>
