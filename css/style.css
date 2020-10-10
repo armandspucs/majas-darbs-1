@@ -130,3 +130,9 @@ button {
     color: royalblue;
 }
 /*birutas stili beidzas*/
+
+.flex
+{
+    display: flex;
+    gap:10px;
+}
