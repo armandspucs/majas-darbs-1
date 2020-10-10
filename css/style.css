@@ -47,6 +47,11 @@ table td, table th {
     width: 100%;
 }
 
+.link{
+	text-decoration: underline;
+	color:blue;
+	cursor: pointer;
+}
 /*---Andris uzdarbojas-------------------------------- */
 
 * {
