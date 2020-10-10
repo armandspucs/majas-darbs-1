@@ -33,9 +33,11 @@ table td, table th {
 }
 
 .button {
-    background: blue;
+    background: gray;
     color: white;
     padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .noborder th, .noborder td {
