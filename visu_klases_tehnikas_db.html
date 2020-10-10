@@ -5,55 +5,70 @@
 		<title>Skolas datortehnikas uzskaite - Kabinetu tehnika</title>
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
 		<link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 		<script src="js/head_food.js"></script>
+		<script src="js/angular.js"></script>
+		<link href="css/style.css" rel="stylesheet" />
+		<script>
+			var json='{"dati":[{"kab":"201","proj":1,"datori":3,"print":1,"skandas":1,"ruteris":1}]}';
+			var obj = JSON.parse(json); 
+		</script>
 	</head>
 	<body>
 		<script>head("Klasēs pieejamā tehnika");</script>
-	<div class="filtr">
-	<hr>
-		<table class="noborder">
-			<tr>
-				<td>Meklēt</td>
-				<td><input type="text" placeholder="Mekēt" id="myInput" onkeyup="meklet(1,'myInput')"></td>
-				<td>&nbsp;</td>
-				<td>ir datori</td>
-				<td><input type="checkbox" id=""></td>
-				<td>&nbsp;</td>
-				<td>ir skandas</td>
-				<td><input type="checkbox" id=""></td>
-			</tr>
-			<tr>
-				<td colspan=3>&nbsp;</td>
-				<td>ir projektors</td>
-				<td><input type="checkbox" id=""></td>
-				<td>&nbsp;</td>
-				<td>ir rūteris</td>
-				<td><input type="checkbox" id=""></td>
-			</tr>
-		</table>
-		<hr>
-	</div>
-	<table>
-		<thead>
-			<tr>
-				<th>Kab. Nr.</th>
-				<th>Projektors</th>
-				<th>Datoru skaits</th>
-				<th>Skandas</th>
-				<th>Sīkāka informācija</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td onclick="window.location.href ='klases_tehnikas_db.html?k=12'">14.</td>
-				<td>printeris</td>
-				<td>1239-554</td>
-				<td>-</td>
-				<td>sīkāk</td>
-			</tr>
-		</tbody>
-	</table>
-	<script>  foot();</script>
+				<hr>
+				<div  ng-app="myApp" ><!-- sākas angular -->
+					
+				<table class="noborder">
+					<tbody>
+						<tr>
+							<td>Meklēt</td>
+							<td><input type="text" placeholder="Mekēt" id="myInput" onkeyup="meklet(1,'myInput')"></td>
+							<td>&nbsp;</td>
+							<td>ir datori</td>
+							<td><input type="checkbox" id=""></td>
+							<td>&nbsp;</td>
+							<td>ir skandas</td>
+							<td><input type="checkbox" id=""></td>
+						</tr>
+						<tr>
+							<td colspan=3>&nbsp;</td>
+							<td>ir projektors</td>
+							<td><input type="checkbox" id=""></td>
+							<td>&nbsp;</td>
+							<td>ir rūteris</td>
+							<td><input type="checkbox" id=""></td>
+						</tr>
+					</tbody>
+				</table>
+				<hr>
+				<table>
+					<thead>
+						<tr>
+							<th>Kab. Nr.</th>
+							<th>Projektors</th>
+							<th>Datoru skaits</th>
+							<th>Skandas</th>
+							<th>Sīkāka informācija</th>
+						</tr>
+					</thead>
+					<tbody ng-controller="myCtrl" ng-repeat="i in dati">
+						<tr>
+							<td onclick="window.location.href ='klases_tehnikas_db.html?k={{i.kab}}'">{{i.kab}}</td>
+							<td>{{i.proj}}111</td>
+							<td>{{i.datori}}</td>
+							<td>{{i.skandas}}</td>
+							<td>sīkāk</td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+			<script>
+				//alert(obj.dati[0].datori);
+				foot();
+				Ctrl(obj.dati);
+			</script>
+
 </body>
 
 </html>
