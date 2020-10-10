@@ -28,6 +28,10 @@ body {
     width: 50px;
 }
 
+.back {
+    width: 50px;
+}
+
 table td, table th {
     border: 1px solid grey;
 }
