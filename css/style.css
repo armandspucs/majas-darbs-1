@@ -49,11 +49,12 @@ table td, table th {
     width: 100%;
 }
 
-.link{
-	text-decoration: underline;
-	color:blue;
-	cursor: pointer;
+.link {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
 }
+
 /*---Andris uzdarbojas-------------------------------- */
 
 * {
@@ -127,14 +128,16 @@ button {
 }
 
 /*-----------------------------------------------------*/
+
 /*birutas stili*/
+
 #h4b {
     color: royalblue;
 }
+
 /*birutas stili beidzas*/
 
-.flex
-{
+.flex {
     display: flex;
-    gap:10px;
+    gap: 10px;
 }
