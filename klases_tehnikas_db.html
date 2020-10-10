@@ -17,7 +17,7 @@
 	<div ng-app="myApp" ng-controller="myCtrl"><!-- start angular -->
 	<script>head(obj.klase+". klasē pieejamā tehnika");</script>
 			<table>
-				<tbody ng-repeat="i in data">
+				<tbody ng-repeat="i in dati">
 					<tr>
 						<td>{{i.name}}</td>
 						<td>{{i.count}}</td>
@@ -29,7 +29,7 @@
 			</div>
 		<script>
 			foot();
-			Ctrl(obj);
+			Ctrl(obj.dati);
 		</script>
 
 	</div><!-- end angular -->
