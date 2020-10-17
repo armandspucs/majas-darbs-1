@@ -18,6 +18,9 @@ input
     margin-right: auto;
     padding: 10px;
 }
+input{
+height:28px;
+}
 
 .header {}
 
@@ -50,7 +53,8 @@ table td, table th {
     border-radius: 5px;
     display:inline-block;
     text-decoration: none;
-}
+	text-align: center;
+	}
 
 table,.noborder{
 	border-collapse: collapse;
@@ -103,7 +107,7 @@ button {
     padding: 5px 5px 5px 5px;
     border: 1px solid rgb(0, 0, 0);
     margin-bottom: 12px;
-	text-align: center;//varbūt nevajag
+
 }
 
 #myInput {
