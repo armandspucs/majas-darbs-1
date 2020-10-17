@@ -8,15 +8,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script>
 		var kab=findGetParameter("k");// kosaka kabinetu
-		var json='{"klase":"201", "dati":[{"name":"datori","count":3,"bojats":0,"desk":""},{"name":"Printeris","count":1,"bojats":"0","desk":"tīkla"}, {"name":"Projektors","count":1,"bojats":1,"desk":"2HDMI"}, {"name":"Skandas","count":1,"bojats":"0","desk":""}, {"name":"Rūteris","count":1,"bojats":0,"desk":"Parole:fkjbvjdf"}]}';
+		var json='{"klase":"201", "dati":[{"name":"datori","count":13,"bojats":0,"desk":""},{"name":"Printeris","count":0,"bojats":"0","desk":"tīkla"}, {"name":"Projektors","count":1,"bojats":1,"desk":"2HDMI"}, {"name":"Skandas","count":1,"bojats":"0","desk":""}, {"name":"Rūteris","count":1,"bojats":0,"desk":"Parole:fkjbvjdf"}]}';
 		var obj = JSON.parse(json); 
 function rinda(){
 	dati=obj.dati;
 	for (i in dati) {
 		document.write("\t\t\t\t\t<tr>\n");
 		document.write("\t\t\t\t\t\t<td>"+obj.dati[i].name+"</td>\n");
-		document.write("\t\t\t\t\t\t<td>"+obj.dati[i].count+"</td>\n");
-		document.write("\t\t\t\t\t\t<td>"+obj.dati[i].bojats+"</td>\n");
+		document.write("\t\t\t\t\t\t<td>"+(obj.dati[i].name=="datori"? obj.dati[i].count: (obj.dati[i].count>0?"&#x2713":"&#8855"))+"</td>\n");
+		document.write("\t\t\t\t\t\t<td>"+(obj.dati[i].bojats>0?obj.dati[i].bojats+" bojāts":"")+"</td>\n");
 		document.write("\t\t\t\t\t\t<td>"+obj.dati[i].desk+"</td>\n");
 		document.write("\t\t\t\t\t</tr>\n");
 	}
@@ -31,26 +31,23 @@ function rinda(){
 				<img src="img/logo.png" />
 				<h2>Datortehnikas uzskaites sistēma</h2>
 				<hr>
-			</div>
-	
-
-            <a href="klases_tehnika.html">
-                <img class="back_btn" src="img/back.png" />
-                Atpakaļ
-            </a>
+				<a href="klases_tehnika.html">
+					<img class="back_btn" src="img/back.png" />
+					Atpakaļ
+				</a>
 
 			<h4 id="h4b">
 			<script>
 				document.write(kab);
 			</script>
 			. klasē pieejamā tehnika</h4>			
-			<table>
-					<tbody ng-repeat="i in dati">
+			</div>
+			<table class="noborder">
+					<tbody>
 						<script>rinda();</script>
 					</tbody>
 				</table>
-			</div>
-
+	
 
 			<div class="footer">
 				<hr>
