@@ -56,6 +56,10 @@ table td, table th {
     width: 100%;
 }
 
+.noborder tr{
+	border-bottom: 6px solid red;
+}
+
 .link {
     text-decoration: underline;
     color: blue;
