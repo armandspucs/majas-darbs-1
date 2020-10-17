@@ -47,7 +47,7 @@ table td, table th {
     text-decoration: none;
 }
 
-.noborder{
+table,.noborder{
 	border-collapse: collapse;
   }
 
@@ -98,6 +98,7 @@ button {
     padding: 5px 5px 5px 5px;
     border: 1px solid rgb(0, 0, 0);
     margin-bottom: 12px;
+	text-align: center;//varbūt nevajag
 }
 
 #myInput {
