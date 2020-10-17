@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Pieteikt problēmu</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <script src='js/block.js'></script>
+    <script src='js/mekleet.js'></script>
+</head>
+
+	<body>
+		<div class ="wrap">
+			<div class ="header">
+				<img src="img/logo.png"/>
+				<h2>Skolas datortehnikas uzskaite</h2>
+				<hr>
+			</div><!--beidzas galva-->
+				
+
+            <a href="index.html">
+                <img class="back_btn" src="img/back.png" />
+                Atpakaļ
+            </a>
+
+			<h4 id="h4b">Datortehnikas problēmu saraksts</h4>	
+				<hr>
+    <form>
+	<table>
+        <thead>
+            <tr>
+                <th>Tips</th>
+                <th>Inventāra Nr.</th>
+                <th>Kabinets</th>
+				<th>Problēmas apraksts</th>
+				<th colspan=2>statuss</th>
+
+            </tr>
+        </thead>
+		<tbody id="myTable">
+			<tr>
+				<td>printeris</td>
+				<td>1239-554</td>
+				<td>12</td>
+				<td>Nomainīt kātridžu</td>
+				<td>Izpildīts</td>
+				<td><a class="button" href="pieteikt.html">Pieteikt atkārtoti</a></td>
+				</tr>
+			<tr>
+				<td>dators</td>
+				<td>1239-556</td>
+				<td>13</td>
+				<td>Samainīt barošanas vadu</td>
+				<td><select name="">
+					<option value=""selected>Neizpildīts</option>
+					<option value="">Risinās</option>
+					<option value="">Izpildīts</option>
+				</select></td>
+				<Td><input class="button" type="button" value="Apstiprināt" onclick=""></Td>
+			</tr>
+			<tr>
+				<td>Skandas</td>
+				<td>1239-551</td>
+				<td>13</td>
+				<td>Salabot vadu</td>
+				<td><select name="">
+					<option value="">Neizpildīts</option>
+					<option value="" selected>Risinās</option>
+					<option value="">Izpildīts</option>
+				</select></td>
+				<Td><input class="button" type="button" value="Apstiprināt" onclick=""></Td>
+			</tr>
+			</tr>
+
+		</tbody>
+
+    </table>
+</form>
+
+				<div class="footer">
+					<hr>
+					(c) 2020 Sia "Kafijas automāts"
+				</div>
+	
+			</div><!--beidzas wrap-->
+
+</body>
+
+</html>
