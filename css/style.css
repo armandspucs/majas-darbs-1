@@ -47,6 +47,10 @@ table td, table th {
     text-decoration: none;
 }
 
+.noborder{
+	border-collapse: collapse;
+  }
+
 .noborder th, .noborder td {
     border: none;
     padding: 5px;
@@ -57,7 +61,7 @@ table td, table th {
 }
 
 .noborder tr{
-	border-bottom: 6px solid red;
+	border-bottom: 1px solid;
 }
 
 .link {
