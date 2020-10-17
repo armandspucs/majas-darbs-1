@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Pieteikt problēmu</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <script src='js/block.js'></script>
+    <script src='js/mekleet.js'></script>
+</head>
+
+	<body>
+		<div class ="wrap">
+			<div class ="header">
+				<img src="img/logo.png"/>
+				<h2>Skolas datortehnikas uzskaite</h2>
+				<hr>
+			</div><!--beidzas galva-->
+				
+
+            <a href="index.html">
+                <img class="back_btn" src="img/back.png" />
+                Atpakaļ
+            </a>
+
+			<h4 id="h4b">Pieteikt datortehnikas problēmu</h4>	
+				<hr>
+    <form>
+	<table>
+        <thead>
+            <tr>
+                <th colspan=2>Tips<br>
+					<select id="myType" onchange ="meklet(1, this.id)";>
+						<option value="">Viss saraksts</option>
+						<option value="printeris">Printeris</option>
+						<option value="dators">Dators</option>
+						<option value="skandas">Skandas</option>
+					</select>
+				</th>
+                <th>Inventāra Nr.<br>
+					<input type="text" placeholder="Inventāra numura" id="myNum" onkeyup="meklet(2,this.id)">
+				</th>
+                <th>Kabinets<br>
+					<select id="myCab" onchange ="meklet(3, this.id)" alt="Mekēt pēc kabineta">
+						<option value="">Viss saraksts</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+					</select>
+				</th>
+            </tr>
+        </thead>
+		<tbody id="myTable">
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>printeris</td>
+				<td>1239-554</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>dators</td>
+				<td>1239-556</td>
+				<td>13</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>Skandas</td>
+				<td>1239-551</td>
+				<td>13</td>
+			</tr>
+
+		</tbody>
+		<thead>
+			<tr>
+				<td colspan=4>Problēma:<textarea name="" rows="1" cols=""></textarea></td>
+			</tr>
+			<tr>
+				<td colspan=4><input type="button"  class="button" value="Pieteikt" onclick=""></td>
+			</tr>
+		</thead>
+    </table>
+</form>
+
+				<div class="footer">
+					<hr>
+					(c) 2020 Sia "Kafijas automāts"
+				</div>
+	
+			</div><!--beidzas wrap-->
+
+</body>
+
+</html>
