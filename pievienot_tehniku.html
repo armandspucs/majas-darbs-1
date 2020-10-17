@@ -4,6 +4,7 @@
             Pievienot datortehniku
         </title>
         <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+        <!--   <script src='js/nomainiLaukus.js'></script>   -->
     </head>
     <body>
     <div class ="wrap">
@@ -31,7 +32,7 @@
         <!--Izvēlēties ievadāmo tehniku:-->
         <div class="flex">
             <div class="col">
-                <label for="tehnika">Izvēlies datortehnikas veidu:</label>
+                <label for="tehnika"> Datortehnikas veids:</label>
             </div>
             <div class="col">
                 <select name="tehnika" id="tehnika">
@@ -41,7 +42,52 @@
                 </select>
             </div>
         </div>
+        
+        <button class=button id=ievads onclick="nomainiLaukus()">Izvēlies</button>
+        
         <br><br><hr>
+        <!---->
+   
+
+            <p id="datortehnika">Izvēlētā tehnika</p>
+            <button class="nosaukumi" for="dati1"id="nos1">parametrs</button>
+            <input class="dati" type="text" id="dati1"><br>
+            <button class="nosaukumi" for="dati1"id="nos2">parametrs</button>
+            <input class="dati" type="text" id="dati2"><br>
+            <button class="nosaukumi" for="dati1"id="nos3">parametrs</button>
+            <input class="dati" type="text" id="dati3"><br>
+            <button class="nosaukumi" for="dati1"id="nos4">parametrs</button>
+            <input class="dati" type="text" id="dati4"><br>    
+            <br><hr>     
+            <button class=button id=saglabat >Saglabāt</button> 
+
+<script>
+function nomainiLaukus() {
+var x = document.getElementById("tehnika").value;  
+document.getElementById("datortehnika").innerHTML = x;
+switch  (x){
+    case 'dators':
+    document.getElementById("nos1").textContent = "Procesors";
+    document.getElementById("nos2").textContent = "RAM";
+    document.getElementById("nos3").textContent = "Cietais disks";
+    document.getElementById("nos4").textContent = "OS";
+    break;
+    case 'monitors':
+    document.getElementById("nos1").textContent = "Ražotājs";
+    document.getElementById("nos2").textContent = "Izmērs";
+    document.getElementById("nos3").textContent = "Video ieejas";
+    document.getElementById("nos4").textContent = "Skaņa";
+    break;
+    case 'printeris':
+    document.getElementById("nos1").textContent = "Ražotājs";
+    document.getElementById("nos2").textContent = "tips";
+    document.getElementById("nos3").textContent = "Papīra izmērs";
+    document.getElementById("nos4").textContent = "toneris";
+    break;
+}
+}
+</script>
+ 
     </div>
 
     </body>

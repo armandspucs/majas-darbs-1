@@ -147,3 +147,21 @@ button {
     display: flex;
     gap: 10px;
 }
+/*Andrejs stils*/
+#ievads{
+    width: 23%; 
+}
+#saglabat{
+    width: 23%; 
+}
+.nosaukumi {
+    width: 15%;
+}
+.dati {
+    width: 40%;
+    height: 29px;
+}
+#datortehnika{
+    font-size: 14px;
+}
+/*Andrejs stili beidzas*/
