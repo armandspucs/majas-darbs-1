@@ -161,7 +161,8 @@ button {
     width: 40%;
     height: 29px;
 }
-#datortehnika{
-    font-size: 14px;
+#datortehnika {
+    font-size: 18px;
+    font-weight: bold; 
 }
 /*Andrejs stili beidzas*/
