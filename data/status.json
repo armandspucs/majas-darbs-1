@@ -2,19 +2,19 @@
 	"dati":[
 		{
 			"id": "1",
-			"invertars": "Neizpildīts",
+			"name": "Neizpildīts"
 		},
 		{
 			"id": "2",
-			"invertars": "Procesā"
+			"name": "Risinās"
 		},
 		{
 			"id": "3",
-			"invertars": "Izpildīts"
+			"name": "Izpildīts"
 		},
 		{
 			"id": "4",
-			"invertars": "Noraidīts"
+			"name": "Noraidīts"
 		}
 	]
 }

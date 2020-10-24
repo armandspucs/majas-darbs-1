@@ -23,7 +23,6 @@
 			let rinda=document.getElementById("rinda");
 			rinda.innerHTML="";
 			for (i in dati) {
-				alert (i);
 				rinda.innerHTML+=`<tr>
 							<td>${obj.dati[i].name}</td>
 							<td>${(obj.dati[i].name=="datori"? obj.dati[i].count: (obj.dati[i].count>0?"&#x2713":"&#8855"))}</td>

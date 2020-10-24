@@ -8,7 +8,8 @@
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
     <script src='js/block.js'></script>
     <script src='js/mekleet.js'></script>
-<		<script src='js/head_food.js'></script>
+	<script src='js/head_food.js'></script>
+	<script src='js/main.js'></script>
 </head>
 
 <body>
@@ -23,9 +24,7 @@
                 <th colspan=2>Tips<br>
 					<select id="myType" onchange ="meklet(1, this.id)";>
 						<option value="">Viss saraksts</option>
-						<option value="printeris">Printeris</option>
-						<option value="dators">Dators</option>
-						<option value="skandas">Skandas</option>
+						<script>document.write(getList("unit_type", ""));</script>
 					</select>
 				</th>
                 <th>Inventāra Nr.<br>
@@ -34,9 +33,7 @@
                 <th>Kabinets<br>
 					<select id="myCab" onchange ="meklet(3, this.id)" alt="Mekēt pēc kabineta">
 						<option value="">Viss saraksts</option>
-						<option value="12">12</option>
-						<option value="13">13</option>
-						<option value="14">14</option>
+						<script>document.write(getList("room", ""));</script>
 					</select>
 				</th>
             </tr>
@@ -44,19 +41,19 @@
 		<tbody id="myTable">
 			<tr>
 				<td><input type="checkbox"></td>
-				<td>printeris</td>
+				<td>Printeris</td>
 				<td>1239-554</td>
 				<td>12</td>
 			</tr>
 			<tr>
 				<td><input type="checkbox"></td>
-				<td>dators</td>
+				<td>Dators</td>
 				<td>1239-556</td>
 				<td>13</td>
 			</tr>
 			<tr>
 				<td><input type="checkbox"></td>
-				<td>Skandas</td>
+				<td>Skeneris</td>
 				<td>1239-551</td>
 				<td>13</td>
 			</tr>

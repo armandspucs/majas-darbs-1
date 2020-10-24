@@ -8,7 +8,8 @@
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
     <script src='js/block.js'></script>
     <script src='js/mekleet.js'></script>
-		<script src='js/head_food.js'></script>
+	<script src='js/head_food.js'></script>
+	<script src='js/main.js'></script>
 </head>
 
 <body>
@@ -30,40 +31,6 @@
             </tr>
         </thead>
 		<tbody id="myTable">
-			<tr>
-				<td>printeris</td>
-				<td>1239-554</td>
-				<td>12</td>
-				<td>Nomainīt kātridžu</td>
-				<td>Izpildīts</td>
-				<td><a class="button" href="pieteikt.html">Pieteikt atkārtoti</a></td>
-				</tr>
-			<tr>
-				<td>dators</td>
-				<td>1239-556</td>
-				<td>13</td>
-				<td>Samainīt barošanas vadu</td>
-				<td><select name="">
-					<option value=""selected>Neizpildīts</option>
-					<option value="">Risinās</option>
-					<option value="">Izpildīts</option>
-				</select></td>
-				<Td><input class="button" type="button" value="Apstiprināt"></Td>
-			</tr>
-			<tr>
-				<td>Skandas</td>
-				<td>1239-551</td>
-				<td>13</td>
-				<td>Salabot vadu</td>
-				<td><select name="">
-					<option value="">Neizpildīts</option>
-					<option value="" selected>Risinās</option>
-					<option value="">Izpildīts</option>
-				</select></td>
-				<Td><input class="button" type="button" value="Apstiprināt"></Td>
-			</tr>
-			</tr>
-
 		</tbody>
 
     </table>
@@ -72,7 +39,56 @@
     <!-- -->
     <script>
         foot();
+
     </script>
 </body>
-
+<script>
+function rinda(){
+let json=`{
+    "dati": [
+        {
+            "id": "1",
+            "name": "printeris ",
+            "invNr": "1239-554 ",
+            "room": "12",
+            "note": "Nomainīt kātridžu ",
+            "status": "Izpildīts"
+        },
+        {
+            "id": "2",
+            "name": "dators ",
+            "invNr": "1239-556 ",
+            "room": "13",
+            "note": "Samainīt barošanas vadu ",
+            "status": "Neizpildīts"
+        },
+        {
+            "id": "3",
+            "name": "Skandas ",
+            "invNr": "1239-551 ",
+            "room": "13",
+            "note": "Salabot vadu ",
+            "status": "Risinās"
+        }
+    ]
+}`;
+	let obj = JSON.parse(json); 
+	let dati=obj.dati;
+	let rinda=document.getElementById("myTable");
+	rinda.innerHTML="";
+	for (let i in dati) {
+		rinda.innerHTML+=`<tr>
+					<td>${obj.dati[i].name}</td>
+					<td>${obj.dati[i].invNr}</td>
+					<td>${obj.dati[i].room}</td>
+					<td>${obj.dati[i].note}</td>
+					<td>${(obj.dati[i].status!="Izpildīts"?
+						'<select id="invNr">'+getList("status",obj.dati[i].status)+'</select>':
+						obj.dati[i].status)}</td>
+					<td>${(obj.dati[i].status=="Izpildīts"?'<a class="button" href="pieteikt.html">Pieteikt atkārtoti</a>':"")}</td>
+				</tr>`;
+	}
+}
+		rinda();
+</script>
 </html>
