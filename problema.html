@@ -82,7 +82,7 @@ let json=`{
 					<td>${obj.dati[i].room}</td>
 					<td>${obj.dati[i].note}</td>
 					<td>${(obj.dati[i].status!="Izpildīts"?
-						'<select id="invNr">'+getList("status",obj.dati[i].status)+'</select>':
+						'<select id="'+obj.dati[i].invNr+'">'+getList("status",obj.dati[i].status,obj.dati[i].invNr)+'</select>':
 						obj.dati[i].status)}</td>
 					<td>${(obj.dati[i].status=="Izpildīts"?'<a class="button" href="pieteikt.html">Pieteikt atkārtoti</a>':"")}</td>
 				</tr>`;
