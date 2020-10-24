@@ -7,20 +7,32 @@
 		<link href="css/style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script>
-		var kab=findGetParameter("k");// kosaka kabinetu
-		var json='{"klase":"201", "dati":[{"name":"datori","count":13,"bojats":0,"desk":""},{"name":"Printeris","count":0,"bojats":"0","desk":"tīkla"}, {"name":"Projektors","count":1,"bojats":1,"desk":"2HDMI"}, {"name":"Skandas","count":1,"bojats":"0","desk":""}, {"name":"Rūteris","count":1,"bojats":0,"desk":"Parole:fkjbvjdf"}]}';
-		var obj = JSON.parse(json); 
-function rinda(){
-	dati=obj.dati;
-	for (i in dati) {
-		document.write("\t\t\t\t\t<tr>\n");
-		document.write("\t\t\t\t\t\t<td>"+obj.dati[i].name+"</td>\n");
-		document.write("\t\t\t\t\t\t<td>"+(obj.dati[i].name=="datori"? obj.dati[i].count: (obj.dati[i].count>0?"&#x2713":"&#8855"))+"</td>\n");
-		document.write("\t\t\t\t\t\t<td>"+(obj.dati[i].bojats>0?obj.dati[i].bojats+" bojāts":"")+"</td>\n");
-		document.write("\t\t\t\t\t\t<td>"+obj.dati[i].desk+"</td>\n");
-		document.write("\t\t\t\t\t</tr>\n");
-	}
-}
+		let kab=findGetParameter("k");// kosaka kabinetu
+		function rinda(){
+			let json=`{"klase":"201",
+						"dati":[
+							{"name":"datori","count":13,"bojats":0,"desk":""},
+							{"name":"Printeris","count":0,"bojats":"0","desk":"tīkla"},
+							{"name":"Projektors","count":1,"bojats":1,"desk":"2HDMI"}, 
+							{"name":"Skandas","count":1,"bojats":"0","desk":""},
+							{"name":"Rūteris","count":1,"bojats":0,"desk":"Parole:fkjbvjdf"}
+						]
+						}`;
+			let obj = JSON.parse(json); 
+			let dati=obj.dati;
+			let rinda=document.getElementById("rinda");
+			rinda.innerHTML="";
+			for (i in dati) {
+				alert (i);
+				rinda.innerHTML+=`<tr>
+							<td>${obj.dati[i].name}</td>
+							<td>${(obj.dati[i].name=="datori"? obj.dati[i].count: (obj.dati[i].count>0?"&#x2713":"&#8855"))}</td>
+							<td>${(obj.dati[i].bojats>0?obj.dati[i].bojats+" bojāts":"")}</td>
+							<td>${obj.dati[i].desk}</td>
+						</tr>`;
+			}
+
+		}
 	</script>
 		<script src='js/head_food.js'></script>
 </head>
@@ -32,8 +44,7 @@ function rinda(){
     <!-- -->
 
 			<table class="noborder">
-					<tbody>
-						<script>rinda();</script>
+					<tbody id="rinda">
 					</tbody>
 				</table>
 	
@@ -41,7 +52,8 @@ function rinda(){
  
     <!-- -->
     <script>
-        foot();
+	rinda();
+	foot();
     </script>
 </body>
 
