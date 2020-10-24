@@ -91,3 +91,22 @@ function getList(name, select){
 	//alert (rez);
 	return rez
 }
+
+
+
+async function iegutStatusNoServera(a)
+{
+	fetch('https://armandspucs.github.io/majas-darbs-1/data/status.json')
+	.then(res=>res.json())
+	.then(json=>attelotDatus(json,a))
+}
+iegutStatusNoServera('tips');
+
+
+function attelotDatus(json,a)
+{
+	console.log(json);
+}
+
+
+
