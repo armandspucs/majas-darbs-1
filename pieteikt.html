@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset='utf-8'>
-    <title>Pieteikt problēmu</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
-    <script src='js/block.js'></script>
-    <script src='js/mekleet.js'></script>
-	<script src='js/head_food.js'></script>
-	<script src='js/main.js'></script>
-</head>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Pieteikt problēmu</title>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+		<script src='js/block.js'></script>
+		<script src='js/mekleet.js'></script>
+		<script src='js/head_food.js'></script>
+		<script src='js/main.js'></script>
+	</head>
 
 <body>
     <script>
@@ -24,7 +23,7 @@
                 <th colspan=2>Tips<br>
 					<select id="myType" onchange ="meklet(1, this.id)";>
 						<option value="">Viss saraksts</option>
-						<script>document.write(getList("unit_type", ""));</script>
+			
 					</select>
 				</th>
                 <th>Inventāra Nr.<br>
@@ -33,7 +32,6 @@
                 <th>Kabinets<br>
 					<select id="myCab" onchange ="meklet(3, this.id)" alt="Mekēt pēc kabineta">
 						<option value="">Viss saraksts</option>
-						<script>document.write(getList("room", ""));</script>
 					</select>
 				</th>
             </tr>
@@ -73,7 +71,10 @@
     <!-- -->
     <script>
         foot();
-    </script>
+		getList("unity_type", "","myType");
+		getList("room", "","myCab");
+
+	</script>
 </body>
 
 </html>
