@@ -1,19 +1,19 @@
-async function getList(name, select){
-	fetch(`https://armandspucs.github.io/majas-darbs-1/data/${name}.json`)
+async function getList(jsonFile, selectItem, objectId){
+	fetch(`https://armandspucs.github.io/majas-darbs-1/data/${jsonFile}.json`)
 		.then(res => res.json())
-		.then(json => optionList(json, select))
+		.then(json => optionList(json, selectItem, objectId))
 
 }
 
-function optionList(json, select){
+function optionList(json, selectItem, objectId){
 	let dati = json.dati;
 	let rez = "";
 	for (let i in dati) {
 		// alert((dati[i].name===select?" Selected":""));
-		rez += `<option value="${dati[i].name}" ${(dati[i].name==select?" Selected":"")}>${dati[i].name}</option>\n`;
+		rez += `<option value="${dati[i].name}" ${(dati[i].name==selectItem?" Selected":"")}>${dati[i].name}</option>\n`;
 	}
-	alert (rez);
-	return rez;
+	//alert (rez);
+	document.getElementById(objectId).innerHTML+= rez;
 }
 
 
