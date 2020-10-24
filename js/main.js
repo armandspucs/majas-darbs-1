@@ -1,4 +1,4 @@
-async function getList(jsonFile, selectItem, objectId){
+function getList(jsonFile, selectItem, objectId){
 	fetch(`https://armandspucs.github.io/majas-darbs-1/data/${jsonFile}.json`)
 		.then(res => res.json())
 		.then(json => optionList(json, selectItem, objectId))
@@ -9,10 +9,8 @@ function optionList(json, selectItem, objectId){
 	let dati = json.dati;
 	let rez = "";
 	for (let i in dati) {
-		// alert((dati[i].name===select?" Selected":""));
 		rez += `<option value="${dati[i].name}" ${(dati[i].name==selectItem?" Selected":"")}>${dati[i].name}</option>\n`;
 	}
-	//alert (rez);
 	document.getElementById(objectId).innerHTML+= rez;
 }
 
