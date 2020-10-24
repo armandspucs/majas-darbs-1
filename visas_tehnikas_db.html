@@ -14,27 +14,19 @@
 
 <body>
     <script>
-        head("<h2>Visas tehnikas datubāze<h2>");
+        head("Visas tehnikas datubāze","admin.html");
     </script>
     <!-- -->
     <div class="row">
         <div class="colUz3">
-            <select id="mySelect">
+            <select id="mySelect" onchange="meklet(0, 'mySelect')">
                 <option disabled selected hidden></option>
                 <option value="">Viss saraksts</option>
                 <option value="printeris">printeris</option>
                 <option value="dators">dators</option>
                 <option value="tumbas">tumbas</option>
             </select>
-            <!-- *********************** -->
-            <button class="button" type="button" onclick="myFunction()">atlasīt tehniku</button>
-            <script>
-                function myFunction() {
-                    //var x = document.getElementById("mySelect").value;
-                    // document.getElementById("demo").innerHTML = x;
-                    meklet(0, 'mySelect');
-                }
-            </script>
+
             <p id="demo"></p>
             <!--*************************** -->
         </div>

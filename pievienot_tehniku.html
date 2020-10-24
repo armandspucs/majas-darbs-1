@@ -6,29 +6,14 @@
         </title>
         <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
         <script src='js/nomainiLaukus.js'></script>
-    </head>
-    <body>
-    <div class ="wrap">
+		<script src='js/head_food.js'></script>
+</head>
 
-            <div class ="header">
-                <img src="img/logo.png"/>
-                <h2>Skolas datortehnikas uzskaite</h2>
-                <hr>
-            </div><!--beidzas galva-->
-
-        
-        
-        <div class="flex"> <!--saliek blakus kastes back un skata noaukumu-->
-            <div class="col">
-            <a href="visas_tehnikas_db.html">
-                <img class="back_btn" src="img/back.png" />
-                Atpakaļ
-               </a>
-            </div>
-            <div class="col">
-            <h2> Pievienot datortehniku</h2><br>
-            </div>
-        </div><br><!--flex beigas-->
+<body>
+    <script>
+        head("Jaunas tehnikas ievade","visas_tehnikas_db.html");
+    </script>
+    <!-- -->
 
         <!--Izvēlēties ievadāmo tehniku:-->
         <div class="flex">
@@ -36,7 +21,7 @@
                 <label for="tehnika"> Datortehnikas veids:</label>
             </div>
             <div class="col">
-                <select name="tehnika" id="tehnika">
+                <select name="tehnika" id="tehnika" onchange="nomainiLaukus()">
                     <option value="dators">dators</option>
                     <option value="monitors">monitors</option>
                     <option value="printeris">printeris</option>
@@ -44,8 +29,8 @@
             </div>
         </div>
         
-        <button class=button id=ievads onclick="nomainiLaukus()">Izvēlies</button>
-        
+        <!-- <button class=button id=ievads onclick="nomainiLaukus()">Izvēlies</button>
+ -->        
         <br><br><hr>
         <!---->
    
@@ -64,7 +49,10 @@
 
 
  
-    </div>
+    <!-- -->
+    <script>
+        foot();
+    </script>
+</body>
 
-    </body>
 </html>
