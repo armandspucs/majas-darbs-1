@@ -92,7 +92,13 @@ function getList(name, select){
 	return rez
 }
 
-
+async function iegutStatusNoServeraV2(a)
+{
+	fetch('a')
+	.then(res=>res.json())
+	.then(json=>attelotDatus(json))
+}
+iegutStatusNoServera('tips');
 
 async function iegutStatusNoServera(a)
 {
