@@ -1,16 +1,19 @@
-function getList(name, select) {
+async function getList(name, select){
 	fetch(`https://armandspucs.github.io/majas-darbs-1/data/${name}.json`)
 		.then(res => res.json())
-		.then(
-			let dati = json.dati;
-			let rez = "";
-			for (let i in dati) {
-				// alert((dati[i].name===select?" Selected":""));
-				rez += `<option value="${dati[i].name}" ${(dati[i].name==select?" Selected":"")}>${dati[i].name}</option>\n`;
-			}
-			alert (rez);
-			return rez
-		)
+		.then(json => optionList(json, select))
+
+}
+
+function optionList(json, select){
+	let dati = json.dati;
+	let rez = "";
+	for (let i in dati) {
+		// alert((dati[i].name===select?" Selected":""));
+		rez += `<option value="${dati[i].name}" ${(dati[i].name==select?" Selected":"")}>${dati[i].name}</option>\n`;
+	}
+	alert (rez);
+	return rez;
 }
 
 

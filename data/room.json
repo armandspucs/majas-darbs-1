@@ -2,23 +2,23 @@
 	"dati": [
 		{
 		    "id": "1",
-		    "number": "201",
-		    "name": "Direktores kabinets"
+		    "name": "201",
+		    "note": "Direktores kabinets"
 		},
 		{
 		    "id": "2",
-		    "number": "202",
-		    "name": "Sekretāre"
+		    "name": "202",
+		    "note": "Sekretāre"
 		},
 		{
 		    "id": "3",
-		    "number": "401",
-		    "name": "Programēšanas kabinets"
+		    "name": "401",
+		    "note": "Programēšanas kabinets"
 		},
 		{
 		    "id": "4",
-		    "number": "402",
-		    "name": "Informātikas kabinets"
+		    "name": "402",
+		    "note": "Informātikas kabinets"
 		}
 	]
 }
