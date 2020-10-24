@@ -8,7 +8,7 @@ function getList(name, select) {
 				// alert((dati[i].name===select?" Selected":""));
 				rez += `<option value="${dati[i].name}" ${(dati[i].name==select?" Selected":"")}>${dati[i].name}</option>\n`;
 			}
-			//alert (rez);
+			alert (rez);
 			return rez
 		)
 }
