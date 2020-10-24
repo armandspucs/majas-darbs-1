@@ -1,0 +1,20 @@
+{
+	"dati":[
+		{
+			"id": "1",
+			"invertars": "Neizpildīts",
+		},
+		{
+			"id": "2",
+			"invertars": "Procesā"
+		},
+		{
+			"id": "3",
+			"invertars": "Izpildīts"
+		},
+		{
+			"id": "4",
+			"invertars": "Noraidīts"
+		}
+	]
+}
