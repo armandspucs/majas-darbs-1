@@ -1,32 +1,32 @@
 {
-"unity_type": [
-        {
-            "id": "1",
-            "name": "dators"
-        },
-        {
-            "id": "2",
-            "name": "skandas"
-        },
-        {
-            "id": "3",
-            "name": "projektors"
-        },
-        {
-            "id": "4",
-            "name": "kopētajs"
-        },
-        {
-            "id": "5",
-            "name": "skeneris"
-        },
-        {
-            "id": "6",
-            "name": "printeris"
-        },
-        {
-            "id": "7",
-            "name": "interaktīvā tāfele"
-        }
-    ]
+	"dati": [
+		{
+		    "id": "1",
+		    "name": "dators"
+		},
+		{
+		    "id": "2",
+		    "name": "skandas"
+		},
+		{
+		    "id": "3",
+		    "name": "projektors"
+		},
+		{
+		    "id": "4",
+		    "name": "kopētajs"
+		},
+		{
+		    "id": "5",
+		    "name": "skeneris"
+		},
+		{
+		    "id": "6",
+		    "name": "printeris"
+		},
+		{
+		    "id": "7",
+		    "name": "interaktīvā tāfele"
+		}
+	]
 }

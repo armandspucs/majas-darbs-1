@@ -1,24 +1,24 @@
 {
-    "room": [
-        {
-            "id": "1",
-            "number": "201",
-            "name": "Direktores kabinets"
-        },
-        {
-            "id": "2",
-            "number": "202",
-            "name": "Sekretāre"
-        },
-        {
-            "id": "3",
-            "number": "401",
-            "name": "Programēšanas kabinets"
-        },
-        {
-            "id": "4",
-            "number": "402",
-            "name": "Informātikas kabinets"
-        }
-    ]
+	"dati": [
+		{
+		    "id": "1",
+		    "number": "201",
+		    "name": "Direktores kabinets"
+		},
+		{
+		    "id": "2",
+		    "number": "202",
+		    "name": "Sekretāre"
+		},
+		{
+		    "id": "3",
+		    "number": "401",
+		    "name": "Programēšanas kabinets"
+		},
+		{
+		    "id": "4",
+		    "number": "402",
+		    "name": "Informātikas kabinets"
+		}
+	]
 }
