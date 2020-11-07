@@ -1,4 +1,5 @@
 async function klasesTehnika1() {
+async function klasesTehnikaf() {
     let kabinetaNr=14;
     let datoruSkaits=0;
     let datoruDB;
@@ -12,6 +13,9 @@ async function klasesTehnika1() {
     for(i=0;i<datoruDB.length;i++){
         razotajs=datoruDB[i]['razotajs'];
         if(razotajs=="HP")
+       // razotajs=datoruDB[i]['razotajs'];
+       // if(razotajs=="HP")
+       if(datoruDB[i]['razotajs']=="HP")
         {
             datoruSkaits++;
         }
@@ -30,7 +34,7 @@ async function klasesTehnika1() {
     
     })
     
-    console.log(datoruDB);
+    //console.log(datoruDB);
 
     /*
     let datoruDB=[
