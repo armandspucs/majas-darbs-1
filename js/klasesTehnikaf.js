@@ -1,6 +1,38 @@
-function klasesTehnika1() {
+async function klasesTehnika1() {
     let kabinetaNr=14;
     let datoruSkaits=0;
+    let datoruDB;
+
+    fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json')
+    .then(res => res.json())
+    .then(json => { 
+        
+    datoruDB = json;
+
+    for(i=0;i<datoruDB.length;i++){
+        razotajs=datoruDB[i]['razotajs'];
+        if(razotajs=="HP")
+        {
+            datoruSkaits++;
+        }
+    }
+
+    let rinda = document.querySelector('.rinda');
+    rinda.innerHTML += `
+    <tr>
+    <td>${kabinetaNr}</td>
+    <td>${' - '}</td>
+    <td>${datoruSkaits}</td>
+    <td>${' - '}</td>
+    <td>${' - '}</td>
+    </tr>`;
+
+    
+    })
+    
+    console.log(datoruDB);
+
+    /*
     let datoruDB=[
         
                 {
@@ -184,22 +216,8 @@ function klasesTehnika1() {
                     "os": "win10"
                 }           
             ];
-    for(i=0;i<datoruDB.length;i++){
-        razotajs=datoruDB[i][razotajs];
-        if razotajs=="HP"
-        {
-            datoruSkaits++;
-        }
-    }
 
-    rinda.innerHTML += `
-<tr>
-<td>${kabinetaNr}</td>
-<td>${' - '}</td>
-<td>${datoruSkaits}</td>
-<td>${' - '}</td>
-<td>${' - '}</td>
-</tr>`;
+*/
    
     }
     
