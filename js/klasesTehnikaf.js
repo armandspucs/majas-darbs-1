@@ -12,7 +12,6 @@ async function klasesTehnikaf() {
 
     for(i=0;i<datoruDB.length;i++){
         razotajs=datoruDB[i]['razotajs'];
-        if(razotajs=="HP")
        // razotajs=datoruDB[i]['razotajs'];
        // if(razotajs=="HP")
        if(datoruDB[i]['razotajs']=="HP")
@@ -20,7 +19,6 @@ async function klasesTehnikaf() {
             datoruSkaits++;
         }
     }
-
     let rinda = document.querySelector('.rinda');
     rinda.innerHTML += `
     <tr>
@@ -33,7 +31,6 @@ async function klasesTehnikaf() {
 
     
     })
-    
     //console.log(datoruDB);
 
     /*
@@ -223,5 +220,4 @@ async function klasesTehnikaf() {
 
 */
    
-    }
     
