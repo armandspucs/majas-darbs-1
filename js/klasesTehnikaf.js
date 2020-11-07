@@ -1,4 +1,3 @@
-async function klasesTehnika1() {
 async function klasesTehnikaf() {
     let kabinetaNr=14;
     let datoruSkaits=0;
