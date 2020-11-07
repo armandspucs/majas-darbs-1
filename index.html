@@ -13,19 +13,23 @@
     </script>
     <!-- -->
 			<div class="flex">
+					<form method="post" action="admin.html" onsubmit = "return validateForm();" >
 					<div class="col">
 						<label>Lietotāja vārds</label><br><br>
 						<label>Parole</label><br><br>
 					</div>
 					<div class="col">
-						<input type="text"><br><br>
-						<input type="password"><br><br>
-						<a class="button" href="admin.html">Pierakstīties</a>
-					</div>
+						<input type="text" id="text" required><br><br>
+						<input type="password" id="password" required><br><br>
+						<input class="button" type="submit" value="Pierakstīties">
+						<input type="button" onclick="alert(validateForm())" value="test">
+						</div>
 					<div>
 						<a class="button" href="klases_tehnika.html">Kabinetos pielietojamā tehnika</a><br><br>
 						<a class="button" href="pieteikt.html">Ziņot par problēmu ar tehniku</a>
+
 					</div>
+					</form>
 				</div>
 			</div>
 
@@ -33,6 +37,50 @@
     <!-- -->
     <script>
         foot();
+		await function validateForm(){
+
+			let t = document.getElementById("text").value;
+			let p = document.getElementById("password").value;
+			var yy=false;
+			if (t.trim() == ""||p.trim()==""){
+				alert("Aizpildiet VISUS iezīmētos laukus!");
+				return yyy;
+			}else{
+				var yyy=false;
+				yyy=fetch(`https://armandspucs.github.io/majas-darbs-1/data/admin.json`)
+					.then(res => res.json())
+					.then(function(json){
+						let dati = json.admin;
+						let rez=false;
+						for (let i in dati) {
+							if(dati[i].nik==t && dati[i].pwd==p){
+								rez=true;
+							}
+						}
+						alert(rez+"3");
+						return rez
+					})
+					.catch(function(error) {
+						console.log(error);
+					});
+						//alert(yyy+"0");
+						//return false;
+
+			} 
+						return false;
+
+}
+		function validateData(json,t,p){
+			let dati = json.admin;
+			let rez=false;
+			for (let i in dati) {
+					if(dati[i].nik==t && dati[i].pwd==p){
+						rez=true;
+					}
+				}
+			 alert(rez+"3");
+			return rez
+		}
     </script>
 </body>
 
