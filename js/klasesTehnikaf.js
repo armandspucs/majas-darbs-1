@@ -191,8 +191,8 @@ function klasesTehnika1() {
             datoruSkaits++;
         }
     }
-console.log(datoruSkaits);
-    rindas.innerHTML += `
+
+    rinda.innerHTML += `
 <tr>
 <td>${kabinetaNr}</td>
 <td>${' - '}</td>
