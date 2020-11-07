@@ -15,21 +15,21 @@ function optionList(json, selectItem, objectId){
 }
 
 
-async function iegutStatusNoServeraV2(a) {
-    fetch(a)
-        .then(res => res.json())
-        .then(json => attelotDatus(json))
+
+async function iegutDatusNoApi(url)
+{
+  let datiNoServera = await fetch(url);
+  let datiJson = await datiNoServera.json();
+  return datiJson;
 }
-iegutStatusNoServera('tips');
-
-async function iegutStatusNoServera(a) {
-    fetch('https://armandspucs.github.io/majas-darbs-1/data/status.json')
-        .then(res => res.json())
-        .then(json => attelotDatus(json, a))
-}
-iegutStatusNoServera('tips');
+//funkciju var izsaukt šādi
+//let datiJson = await iegutDatusNoApi('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json');
 
 
-function attelotDatus(json, a) {
-    console.log(json);
+//ar zemāko funkciju var notestēt vai darbojas iepriekšējā funkcija iegutDatusNoApi()
+async function testIegutDatusNoApi()
+{
+  let datiJson = await iegutDatusNoApi('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json');
+
+  console.log(datiJson);
 }
