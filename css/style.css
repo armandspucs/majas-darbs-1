@@ -44,7 +44,8 @@ input {
     width: 50px;
 }
 
-table td, table th {
+table td,
+table th {
     border: 1px solid grey;
 }
 
@@ -60,11 +61,13 @@ table td, table th {
     text-align: center;
 }
 
-table, .noborder {
+table,
+.noborder {
     border-collapse: collapse;
 }
 
-.noborder th, .noborder td {
+.noborder th,
+.noborder td {
     border: none;
     padding: 5px;
 }
@@ -86,6 +89,7 @@ table, .noborder {
 option:first {
     color: grey;
 }
+
 
 /*---Andris uzdarbojas-------------------------------- */
 
@@ -130,7 +134,8 @@ button {
     font-size: 18px;
 }
 
-#myTable th, #myTable td {
+#myTable th,
+#myTable td {
     text-align: left;
     padding: 14px;
 }
@@ -139,7 +144,8 @@ button {
     border-bottom: 1px solid #ddd;
 }
 
-#myTable tr.header, #myTable tr:hover {
+#myTable tr.header,
+#myTable tr:hover {
     background-color: #f1f1f1;
 }
 
@@ -159,7 +165,9 @@ button {
     padding-left: 15px;
 }
 
+
 /*-----------------------------------------------------*/
+
 
 /*birutas stili*/
 
@@ -167,12 +175,14 @@ button {
     color: royalblue;
 }
 
+
 /*birutas stili beidzas*/
 
 .flex {
     display: flex;
     gap: 10px;
 }
+
 
 /*Andrejs stils*/
 
@@ -197,5 +207,6 @@ button {
     font-size: 18px;
     font-weight: bold;
 }
+
 
 /*Andrejs stili beidzas*/
