@@ -89,6 +89,18 @@
             "tips": "dators ",
             "inventaraNr": "1239-554 ",
             "name": "402"
+        },
+        {
+            "id": "16",
+            "tips": "projektors ",
+            "inventaraNr": "1239-654 ",
+            "name": "202"
+        },
+        {
+            "id": "17",
+            "tips": "skandas ",
+            "inventaraNr": "1239-754 ",
+            "name": "402"
         }
     ]
 }
