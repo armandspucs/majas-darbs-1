@@ -1,7 +1,5 @@
 async function klasesTehnikaf() {
     let kabinetaNr;
-    let datoruSkaits;
-    let telpa;
     //let datoruDB =fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json')
     let roomDB = await fetch('https://armandspucs.github.io/majas-darbs-1/data/room.json')
     let roomJson = await roomDB.json();
