@@ -1,19 +1,22 @@
 async function klasesTehnikaf() {
-    let kabinetaNr=14;
-    let datoruSkaits=0;
-    let datoruDB;
-
-    fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json')
-    .then(res => res.json())
-    .then(json => { 
-        
-    datoruDB = json;
-
-    for(i=0;i<datoruDB.length;i++){
-        razotajs=datoruDB[i]['razotajs'];
-       // razotajs=datoruDB[i]['razotajs'];
-       // if(razotajs=="HP")
-       if(datoruDB[i]['razotajs']=="HP")
+    let kabinetaNr;
+    let datoruSkaits;
+    let telpa;
+    //let datoruDB =fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json')
+    let roomDB = await fetch('https://armandspucs.github.io/majas-darbs-1/data/room.json')
+    let roomJson = await roomDB.json();
+    let datoruDB = await fetch('https://armandspucs.github.io/majas-darbs-1/data/visas_tehnikas_db.json')
+    let pcJson = await datoruDB.json();
+    
+    let kabinetuSkaits=roomJson.dati.length;   
+    let garums=pcJson.dati.length;
+    for(let j=0;j<kabinetuSkaits;j++){
+        kabinetaNr=roomJson.dati[j]['name'];
+        datoruSkaits=0;
+    for(let i=0;i<garums;i++){
+       telpa=pcJson.dati[i]['name'];
+       if(telpa==kabinetaNr)
+       //if(datoruDB[i]['razotajs']=="HP")
         {
             datoruSkaits++;
         }
