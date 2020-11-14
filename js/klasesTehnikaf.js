@@ -11,23 +11,43 @@ async function klasesTehnikaf() {
     let kabinetuSkaits=roomJson.dati.length;   
     let garums=pcJson.dati.length;
     for(let j=0;j<kabinetuSkaits;j++){
+        irProjektors='-';
+        irSkandas='-';
         kabinetaNr=roomJson.dati[j]['name'];
         datoruSkaits=0;
+        projektoruSkaits=0;
+        skanduSkaits=0;
     for(let i=0;i<garums;i++){
        telpa=pcJson.dati[i]['name'];
-       if(telpa==kabinetaNr)
-       //if(datoruDB[i]['razotajs']=="HP")
-        {
+        tips=pcJson.dati[i]['tips'];
+       if(telpa==kabinetaNr && tips=="dators ")
+               {
             datoruSkaits++;
         }
+        if(telpa==kabinetaNr && tips=="projektors ")
+            {
+            projektoruSkaits++;
+        }
+        if(telpa==kabinetaNr && tips=="skandas ")
+            {
+        skanduSkaits++;
+        }  
+    }
+    if (projektoruSkaits>0)
+        {
+        irProjektors='&#x2713';
+    }
+    if (skanduSkaits>0)
+        {
+        irSkandas='&#x2713';
     }
     let rinda = document.querySelector('.rinda');
     rinda.innerHTML += `
     <tr>
     <td>${kabinetaNr}</td>
-    <td>${' - '}</td>
+    <td>${irProjektors}</td>
     <td>${datoruSkaits}</td>
-    <td>${' - '}</td>
+    <td>${irSkandas}</td>
     <td>${' - '}</td>
     </tr>`;
 
