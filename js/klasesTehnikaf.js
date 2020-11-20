@@ -2,7 +2,7 @@ async function klasesTehnikaf() {
     let kabinetaNr;
     let datoruSkaits, projektoruSkaits, skanduSkaits;
     let telpa, tips;
-    let irProjektors, irSkandas;
+    let irProjektors, irSkandas,info;
     //let datoruDB =fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json')
     let roomDB = await fetch('https://armandspucs.github.io/majas-darbs-1/data/room.json')
     let roomJson = await roomDB.json();
@@ -42,6 +42,7 @@ async function klasesTehnikaf() {
         {
         irSkandas='&#x2713';
     }
+
     let rinda = document.querySelector('.rinda');
     rinda.innerHTML += `
     <tr>
@@ -49,7 +50,9 @@ async function klasesTehnikaf() {
     <td>${irProjektors}</td>
     <td>${datoruSkaits}</td>
     <td>${irSkandas}</td>
-    <td>${' - '}</td>
+    <td><a href="klases_tehnikas_db.html?k=${kabinetaNr}">sīkāka informācija</a> </td>
+    
+    
     </tr>`;
 
     }
