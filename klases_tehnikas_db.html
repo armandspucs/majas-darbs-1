@@ -4,11 +4,13 @@
 		<title>Skolas datortehnikas uzskaite</title>
 		<meta charset="UTF-8">
 		<script src="js/get.js"></script>
+		<script src='js/main.js'></script>
 		<link href="css/style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script>
 		let kab=findGetParameter("k");// kosaka kabinetu
-		function rinda(){
+
+		function rinda_(){
 			let json=`{"klase":"201",
 						"dati":[
 							{"name":"datori","count":13,"bojats":0,"desk":""},
@@ -51,7 +53,7 @@
  
     <!-- -->
     <script>
-	rinda();
+	getData("klase_old","rinda",["name","count","bojats","desk"]);
 	foot();
     </script>
 </body>
