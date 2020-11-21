@@ -1,21 +1,27 @@
-function getList(jsonFile, selectItem, objectId){
-	fetch(`https://armandspucs.github.io/majas-darbs-1/data/${jsonFile}.json`)
-		.then(res => res.json())
-		.then(json => optionList(json, selectItem, objectId))
-
-}
-
-function optionList(json, selectItem, objectId){
+function getList(jsonFile, objectId, selectItem){//parāda datus tabula sarakstā 
+	let dati = await fetch(`https://armandspucs.github.io/majas-darbs-1/data/${jsonFile}.json`);
+	let json = await dati.json();
 	let dati = json.dati;
-	let rez = "";
+	let rindas = "";
 	for (let i in dati) {
-		rez += `<option value="${dati[i].name}" ${(dati[i].name==selectItem?" Selected":"")}>${dati[i].name}</option>\n`;
+		rindas += `<option value="${dati[i].name}" ${(dati[i].name==selectItem?" Selected":"")}>${dati[i].name}</option>\n`;
 	}
-	document.getElementById(objectId).innerHTML+= rez;
+	document.getElementById(objectId).innerHTML+= rindas;
 }
 
-
-
+async function getData(jsonFile,objectId,list[]){ //parāda datus tabula failā 
+	let dati = await fetch(`https://armandspucs.github.io/majas-darbs-1/data/${jsonFile}.json`);
+	let json = await dati.json();
+	let rindas = "";
+	for (i = 0; i < json.dati.length; i++){
+		rindas += "<tr>";
+		for (j = 0; j < list.length; j++){
+			rindas += `<td> {json.dati[j]['id']}</td>`;
+		}
+		rindas += "</tr>";
+	}
+	document.getElementById(objectId).innerHTML=rindas;
+}
 
 
 //////////////////////////////////////////////////////////////
