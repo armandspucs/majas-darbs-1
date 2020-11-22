@@ -84,7 +84,6 @@ async function klasesTehnikaf() {
             <td><a href="klases_tehnikas_db.html?k=${kabinetaNr}">sīkāka informācija</a> </td>
             </tr>`;
         break;
-
         
     }
     }
