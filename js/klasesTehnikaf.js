@@ -1,16 +1,20 @@
 async function klasesTehnikaf() {
     let kabinetaNr;
-    let datoruSkaits, projektoruSkaits, skanduSkaits;
+    let datoruSkaits, projektoruSkaits, skanduSkaits; 
     let telpa, tips;
-    let irProjektors, irSkandas,info;
+    let irProjektors, irSkandas,vajagSkandas, vajagDatoru,vajagProjektoru;
     //let datoruDB =fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json')
     let roomDB = await fetch('https://armandspucs.github.io/majas-darbs-1/data/room.json')
     let roomJson = await roomDB.json();
     let datoruDB = await fetch('https://armandspucs.github.io/majas-darbs-1/data/visas_tehnikas_db.json')
     let pcJson = await datoruDB.json();
-    
     let kabinetuSkaits=roomJson.dati.length;   
     let garums=pcJson.dati.length;
+    vajagSkandas=document.getElementById("skandas").checked;
+    vajagDatoru=document.getElementById("datori").checked;
+    vajagProjektoru=document.getElementById("projektors").checked;
+    
+
     for(let j=0;j<kabinetuSkaits;j++){
         irProjektors='-';
         irSkandas='-';
@@ -18,6 +22,7 @@ async function klasesTehnikaf() {
         datoruSkaits=0;
         projektoruSkaits=0;
         skanduSkaits=0;
+        
     for(let i=0;i<garums;i++){
        telpa=pcJson.dati[i]['name'];
         tips=pcJson.dati[i]['tips'];
@@ -33,6 +38,7 @@ async function klasesTehnikaf() {
             {
         skanduSkaits++;
         }  
+
     }
     if (projektoruSkaits>0)
         {
@@ -42,19 +48,45 @@ async function klasesTehnikaf() {
         {
         irSkandas='&#x2713';
     }
-
     let rinda = document.querySelector('.rinda');
-    rinda.innerHTML += `
-    <tr>
-    <td>${kabinetaNr}</td>
-    <td>${irProjektors}</td>
-    <td>${datoruSkaits}</td>
-    <td>${irSkandas}</td>
-    <td><a href="klases_tehnikas_db.html?k=${kabinetaNr}">sīkāka informācija</a> </td>
+    switch (true){
+        case vajagSkandas && skanduSkaits>0  :
+            
+            rinda.innerHTML += `
+            <tr>
+            <td>${kabinetaNr}</td>
+            <td>${irProjektors}</td>
+            <td>${datoruSkaits}</td>
+            <td>${irSkandas}</td>
+            <td><a href="klases_tehnikas_db.html?k=${kabinetaNr}">sīkāka informācija</a> </td>
+            </tr>`;
+        break;
     
-    
-    </tr>`;
+        case vajagDatoru && datoruSkaits>0  :
+            
+            rinda.innerHTML += `
+            <tr>
+            <td>${kabinetaNr}</td>
+            <td>${irProjektors}</td>
+            <td>${datoruSkaits}</td>
+            <td>${irSkandas}</td>
+            <td><a href="klases_tehnikas_db.html?k=${kabinetaNr}">sīkāka informācija</a> </td>
+            </tr>`;
+        break;
+        case vajagProjektoru && projektoruSkaits>0  :
+            
+            rinda.innerHTML += `
+            <tr>
+            <td>${kabinetaNr}</td>
+            <td>${irProjektors}</td>
+            <td>${datoruSkaits}</td>
+            <td>${irSkandas}</td>
+            <td><a href="klases_tehnikas_db.html?k=${kabinetaNr}">sīkāka informācija</a> </td>
+            </tr>`;
+        break;
 
+        
+    }
     }
     }
    
