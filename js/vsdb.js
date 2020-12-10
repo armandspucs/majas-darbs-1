@@ -1,4 +1,17 @@
 
+/*
+"id": "2",
+            "tips": "dators ",
+            "inventaraNr": "1239-541 ",
+            "iegadesGads": "2018",
+            "piegadatajs": "Sia Dators",
+            "razotajs" : "HP",
+            "procesors": "i7 ",
+            "ram": "8GB",
+            "cietaisDisks": "ssd 250GB",
+            "os": "win10"
+*/
+
 //---------------------------------------------------------------------
 async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.html
 {
@@ -17,8 +30,8 @@ async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.h
 		<td> ` + datiJson.dati[i]['tips'] + ` </td>
 		<td> ` + datiJson.dati[i]['inventaraNr'] + ` </td>
 		<td> ` + datiJson.dati[i]['name'] + ` </td>
-		<th>-</th>
-		<td> sīkāka informācija </td>
+		<th><input type="button" id="` + datiJson.dati[i]['inventaraNr']+ `" value="+" onclick="rad(this,'b');" /></th>
+		<!--<td> sīkāka informācija </td> -->
 		</tr>`;
     } //loop beigas
 
