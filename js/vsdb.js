@@ -54,9 +54,7 @@ async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.h
 		<td> ` + datiJson.dati[i]['tips'] + ` </td>
 		<td> ` + datiJson.dati[i]['inventaraNr'] + ` </td>
 		<td> ` + datiJson.dati[i]['name'] + ` </td>
-		<th><input type="button" id="` + datiJson.dati[i]['inventaraNr']+ `" value="+" onclick="rad(this,'b');" /></th>`;
-		sikaakPeecNumura(datiJson.dati[i]['inventaraNr']);
-		<!--<td> sīkāka informācija </td> -->
-		 tabulasRindas.innerHTML += `</tr>`;
+		<td> <a class="button" id="`+ datiJson.dati[i]['inventaraNr']+`" href="#">sīkāka informācija</a> </td>
+		</tr>`;
     } //loop beigas
 }
