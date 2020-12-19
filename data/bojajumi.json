@@ -1,28 +1,28 @@
 {
-    "dati": [
+   "dati": [
         {
-            "id": "1",
-            "tips": "printeris ",
-            "inventaraNr": "1239-554 ",
-            "kabinets": "12",
-            "apraksts": "Nomainīt kātridžu ",
-            "Statuss": "Izpildīts "
+           "id":"1",
+           "tips":"printeris",
+           "inventaraNr":"1239-554",
+           "kabinets":"12",
+           "apraksts":"Nomainīt kātridžu",
+           "Statuss":"Izpildīts"
         },
         {
-            "id": "2",
-            "tips": "dators ",
-            "inventaraNr": "1239-556 ",
-            "kabinets": "13",
-            "apraksts": "Samainīt barošanas vadu ",
-            "statuss": "Neizpildīts"
+           "id":"2",
+           "tips":"dators",
+           "inventaraNr":"1239-556",
+           "kabinets":"13",
+           "apraksts":"Samainīt barošanas vadu",
+           "statuss":"Neizpildīts"
         },
         {
-            "id": "3",
-            "tips": "Skandas ",
-            "inventaraNr": "1239-551 ",
-            "kabinets": "13",
-            "apraksts": "Salabot vadu ",
-            "Statuss": "Risinās"
+           "id":"3",
+           "tips":"Skandas",
+           "inventaraNr":"1239-551",
+           "kabinets":"13",
+           "apraksts":"Salabot vadu",
+           "Statuss":"Risinās"
         }
     ]
    }
