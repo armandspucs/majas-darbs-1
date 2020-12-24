@@ -23,7 +23,7 @@
                 <th colspan=2>Tips<br>
 					<select id="myType" onchange ="meklet(1, this.id)";>
 						<option value="">Viss saraksts</option>
-			
+
 					</select>
 				</th>
                 <th>Inventāra Nr.<br>
@@ -59,7 +59,7 @@
 		</tbody>
 		<thead>
 			<tr>
-				<td colspan=4>Problēma:<textarea name=""  rows="4" cols="50"></textarea></td>
+				<td colspan=4>Problēma:<textarea name=""  rows="1" cols="50"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan=4><input type="button"  class="button" value="Pieteikt" onclick=""></td>
@@ -71,8 +71,8 @@
     <!-- -->
     <script>
         foot();
-		getList("unity_type", "","myType");
-		getList("room", "","myCab");
+		getList("unity_type","myType", "");
+		getList("room","myCab", "");
 
 	</script>
 </body>
