@@ -22,8 +22,6 @@ async function getList(jsonFile, objectId, selectItem){//parāda datus tabula sa
 	document.getElementById(objectId).innerHTML+= rindas;
 }
 
-
-
 async function getData(jsonFile,objectId,list,next){ //parāda datus tabula failā 
 	let dati = await fetch(`https://armandspucs.github.io/majas-darbs-1/data/${jsonFile}.json`);
 	let json = await dati.json();
@@ -64,3 +62,26 @@ function state(tableID){
 		}
 	}
 }
+
+
+async function validateForm(form){
+	let u = document.getElementById("user").value;
+	let p = document.getElementById("password").value;
+	let rez=false;
+	let fails = await fetch(`https://armandspucs.github.io/majas-darbs-1/data/admin.json`);
+	let json = await fails.json();
+	dati = json.admin;
+	for (let i in dati){
+		if(dati[i].nik==u && dati[i].pwd==p){
+			rez=true;
+		}
+	}
+	if(rez){
+		form.submit();
+	}else{
+		alert("Aizpildiet korekti laukus!");
+	}
+}
+
+
+
