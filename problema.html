@@ -10,57 +10,30 @@
 		<script src='js/head_food.js'></script>
 		<script src='js/main.js'></script>
 	</head>
-
-<body>
-    <script>
-        head("Datortehnikas problēmu saraksts","index.html");
-    </script>
-    <!-- -->
-	<hr>
-    <form>
-	<table>
-        <thead>
-            <tr>
-                <th>Tips</th>
-                <th>Inventāra Nr.</th>
-                <th>Kabinets</th>
-				<th>Problēmas apraksts</th>
-				<th colspan=2>statuss</th>
-
-            </tr>
-        </thead>
-		<tbody id="rinda">
-		</tbody>
-
-    </table>
-</form>
-
-    <!-- -->
-    <script>
-		foot();
-		getData("bojajumi","rinda",["name","invNr","room","note","status"]);
-    </script>
-</body>
-<script>
-function rinda(){
-let json=getData("bojajumi","rinda")
-	let obj = JSON.parse(json); 
-	let dati=obj.dati;
-	let rinda=document.getElementById("rinda");
-	rinda.innerHTML="";
-	for (let i in dati) {
-		rinda.innerHTML+=`<tr>
-					<td>${obj.dati[i].name}</td>
-					<td>${obj.dati[i].invNr}</td>
-					<td>${obj.dati[i].room}</td>
-					<td>${obj.dati[i].note}</td>
-					<td>${(obj.dati[i].status!="Izpildīts"?
-						'<select id="'+obj.dati[i].invNr+'">'+getList("status",obj.dati[i].invNr,obj.dati[i].status)+'</select>':
-						obj.dati[i].status)}</td>
-					<td>${(obj.dati[i].status=="Izpildīts"?'<a class="button" href="pieteikt.html">Pieteikt atkārtoti</a>':"")}</td>
-				</tr>`;
-	}
-}
-		rinda();
-</script>
+	<body onload='statuss("rinda")'>
+		<script>
+			head("Datortehnikas problēmu saraksts","index.html");
+		</script>
+		<!-- -->
+		<hr>
+		<form>
+		<table>
+			<thead>
+				<tr>
+					<th>Tips</th>
+					<th>Inventāra Nr.</th>
+					<th>Kabinets</th>
+					<th>Problēmas apraksts</th>
+					<th colspan=2>Statuss</th>
+				</tr>
+			</thead>
+			<tbody id="rinda">
+			</tbody>
+		</table>
+	</form>
+		<script>
+			foot();
+			getData("bojajumi","rinda",["name","invNr","room","note","status"],'statuss("rinda")');
+		</script>
+	</body>
 </html>

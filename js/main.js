@@ -1,7 +1,20 @@
-function getList(jsonFile, objectId, selectItem){//parāda datus tabula sarakstā 
+function findGetParameter(parameterName) { //nolasa parametrus
+    let items = location.search.substr(1).split("&");
+	let result ="";
+    for (let i = 0; i<items.length; i++){
+        let tmp = items[i].split("=");
+        if (tmp[0] === parameterName){
+			//result = decodeURIComponent(tmp[1]);
+			result = tmp[1];
+		}
+    }
+    return result;
+} 
+
+async function getList(jsonFile, objectId, selectItem){//parāda datus tabula sarakstā 
 	let dati = await fetch(`https://armandspucs.github.io/majas-darbs-1/data/${jsonFile}.json`);
 	let json = await dati.json();
-	let dati = json.dati;
+	dati = json.dati;
 	let rindas = "";
 	for (let i in dati) {
 		rindas += `<option value="${dati[i].name}" ${(dati[i].name==selectItem?" Selected":"")}>${dati[i].name}</option>\n`;
@@ -9,78 +22,66 @@ function getList(jsonFile, objectId, selectItem){//parāda datus tabula sarakst�
 	document.getElementById(objectId).innerHTML+= rindas;
 }
 
-async function getData(jsonFile,objectId,list[]){ //parāda datus tabula failā 
+async function getData(jsonFile,objectId,list,next){ //parāda datus tabula failā 
 	let dati = await fetch(`https://armandspucs.github.io/majas-darbs-1/data/${jsonFile}.json`);
 	let json = await dati.json();
+	dati = json.dati;
 	let rindas = "";
-	for (i = 0; i < json.dati.length; i++){
+	for (i = 0; i < dati.length; i++){
 		rindas += "<tr>";
 		for (j = 0; j < list.length; j++){
-			rindas += `<td> {json.dati[j]['id']}</td>`;
-		}
+			rindas += `<td>${dati[i][list[j]]}</td>`;
+		 }
 		rindas += "</tr>";
 	}
 	document.getElementById(objectId).innerHTML=rindas;
+	eval(next);
+}
+
+function statuss(tableID){
+	let table=document.getElementById(tableID);
+	for (i = 0; i < table.rows.length;i++){
+		switch(table.rows[i].cells[table.rows[i].cells.length-1].innerHTML){
+			case "Izpildīts":
+				table.rows[i].cells[table.rows[i].cells.length-1].innerHTML=table.rows[i].cells[table.rows[i].cells.length-1].innerHTML+`<br><input type="button" value="Atkārtoti pieteikt" onclick="">`;
+			break
+			default:
+				let txt=table.rows[i].cells[table.rows[i].cells.length-1].innerHTML;
+				table.rows[i].cells[table.rows[i].cells.length-1].innerHTML=`<select id="l${i}"></select>`;
+				getList("status", `l${i}`, txt);
+		}
+	}
+}
+
+function state(tableID){
+	let table=document.getElementById(tableID);
+	for (let i=0; i<table.rows.length;i++){
+		if(table.rows[i].cells[0].innerHTML.trim().toUpperCase()!="DATORI"){
+			table.rows[i].cells[1].innerHTML=(table.rows[i].cells[1].innerHTML=="0"?"&#8855":"&#x2713");
+
+		}
+	}
 }
 
 
-//////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
-// / _|   | |     | |                                       (_)
-//| |_ ___| |_ ___| |__    _ __   __ _ _ __ __ _ _   _  __ _ _ 
-//|  _/ _ \ __/ __| '_ \  | '_ \ / _` | '__/ _` | | | |/ _` | |
-//| ||  __/ || (__| | | | | |_) | (_| | | | (_| | |_| | (_| | |
-//|_| \___|\__\___|_| |_| | .__/ \__,_|_|  \__,_|\__,_|\__, |_|
-//                        | |                           __/ |  
-//                        |_|                          |___/
-//paraugi tiek testēti failā fetch_test.html
-
-
-async function raditDatoruDB() //parāda datus tabula failā fetch_test.html
-{
-	let datiNoServera = await fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json');
-	let datiJson = await datiNoServera.json();
-
-	let ierakstu_skaits = datiJson.dati.length; 
-	//ievērojiet ka visa info ir apakšobjektā 'dati' (tāda struktūra no excel nāk)
-	
-	tabulasRindas = document.querySelector('.tabulasRindas');
-
-	for (i = 0; i < ierakstu_skaits; i++)
-	{
-
-		tabulasRindas.innerHTML+=`
-		<tr>
-		<td> `+datiJson.dati[i]['id']+` </td>
-		<td> `+datiJson.dati[i]['razotajs']+` </td>
-		<td> `+datiJson.dati[i]['ram']+` </td>
-		</tr>`;
-		
-  
-	}//loop beigas
-
+async function validateForm(form){
+	let u = document.getElementById("user").value;
+	let p = document.getElementById("password").value;
+	let rez=false;
+	let fails = await fetch(`https://armandspucs.github.io/majas-darbs-1/data/admin.json`);
+	let json = await fails.json();
+	dati = json.admin;
+	for (let i in dati){
+		if(dati[i].nik==u && dati[i].pwd==p){
+			rez=true;
+		}
+	}
+	if(rez){
+		form.submit();
+	}else{
+		alert("Aizpildiet korekti laukus!");
+	}
 }
-//---------------------------------------------------------------------
-async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.html
-{
-    let datiNoServera = await fetch('https://armandspucs.github.io/majas-darbs-1/data/visas_tehnikas_db.json');
-    let datiJson = await datiNoServera.json();
 
-    let ierakstu_skaits = datiJson.dati.length;
-    //ievērojiet ka visa info ir apakšobjektā 'dati' (tāda struktūra no excel nāk)
 
-    tabulasRindas = document.querySelector('.tabulasRindas');
 
-    for (i = 0; i < ierakstu_skaits; i++) {
-
-        tabulasRindas.innerHTML += `
-		<tr>
-		<td> ` + datiJson.dati[i]['tips'] + ` </td>
-		<td> ` + datiJson.dati[i]['inventaraNr'] + ` </td>
-		<td> ` + datiJson.dati[i]['name'] + ` </td>
-		<th>-</th>
-		<td> sīkāka informācija </td>
-		</tr>`;
-    } //loop beigas
-
-}
