@@ -1,4 +1,5 @@
 async function klasesTehnikaf() {
+    
     let kabinetaNr;
     let datoruSkaits, projektoruSkaits, skanduSkaits; 
     let telpa, tips;
@@ -13,8 +14,16 @@ async function klasesTehnikaf() {
     vajagSkandas=document.getElementById("skandas").checked;
     vajagDatoru=document.getElementById("datori").checked;
     vajagProjektoru=document.getElementById("projektors").checked;
-    
-
+    //nodzēst tabulas rindas
+    let tabRindas=document.getElementById('trindas');
+    let rskaits = document.getElementById('trindas').rows.length;
+    let tr = tabRindas.getElementsByTagName("tr");
+    for (let r = 0; r < rskaits; r++) {
+        tr[r].style.display = "none";
+    }
+    //aizpildīt tabulas rindas
+    let atlasesNr=document.getElementById('mekletKlasi').value;
+    //console.log(atlasesNr);
     for(let j=0;j<kabinetuSkaits;j++){
         irProjektors='-';
         irSkandas='-';
@@ -50,6 +59,17 @@ async function klasesTehnikaf() {
     }
     let rinda = document.querySelector('.rinda');
     switch (true){
+        case atlasesNr == kabinetaNr  :
+            
+            rinda.innerHTML += `
+            <tr>
+            <td>${kabinetaNr}</td>
+            <td>${irProjektors}</td>
+            <td>${datoruSkaits}</td>
+            <td>${irSkandas}</td>
+            <td><a href="klases_tehnikas_db.html?k=${kabinetaNr}">sīkāka informācija</a> </td>
+            </tr>`;
+        break;
         case vajagSkandas && skanduSkaits>0  :
             
             rinda.innerHTML += `
@@ -87,6 +107,7 @@ async function klasesTehnikaf() {
         
     }
     }
+
     }
    
     

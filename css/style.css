@@ -208,5 +208,22 @@ button {
     font-weight: bold;
 }
 
+#mekletKlasi{
+    width: 30%; 
+}
+
+#aizpildit {
+    background: gray;
+    color: white;
+    width: 20%;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    }
+
+
 
 /*Andrejs stili beidzas*/
