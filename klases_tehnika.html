@@ -6,11 +6,11 @@
 		<meta charset="UTF-8" />
         <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
         <script src='js/head_food.js'></script>
-        <script src='js/klasesTehnika1.js'></script>
+        <script src='js/klasesTehnikaf.js'></script>
         
 </head>
 
-<body>
+<body onload="klasesTehnikaf()">
     <script>
         head("Klasēs pieejamā tehnika","index.html");
     </script>
@@ -19,45 +19,35 @@
         <div class="flex"> <!--saliek blakus kastes-->
             <!--meklēt-->
             <div class="col">
-               <label for="mekletKlasi">meklēt</label>
-               <input type="text"  id="mekletKlasi" >
+               <input type="text"  id="mekletKlasi" >telpas nr.</input>
            </div>
            <!--radio pogas-->
             
            <div class="col">
-            <label for="datori">ir datori</label>
-            <input type="radio" id="datori">
-            <label for="tumbas">ir skandas</label>
-            <input type="radio" id="tumbas"><br>
-            <label for="projektors">ir projektors</label>
-            <input type="radio" id="projektors">
-            <label for="kopetajs">ir kopētājs</label>
-            <input type="radio" id="kopetajs"><br>
+            <input type="checkbox"  id="datori" checked>ir datori</input><br>
+            <input type="checkbox" id="projektors">ir projektors</input>
+            </div>
+            <div class="col">
+            <input type="checkbox" id="skandas">ir skandas</input><br>
+            <input type="checkbox" id="kopetajs">ir kopētājs</input>
             </div>
         </div>
         <br>
         <hr>
-        
+        <button id="aizpildit" onclick="klasesTehnikaf()">meklē atlasīto</button>
             <!--tabula-->
             <table>
-                                           
+                <thead>                          
          
                 <tr>
-                   <th>kabineta nr.</th> <th>projektors</th><th>datoru skaits</th><th>skandas</th><th>sīkāka informācija</th>
+                   <td>kabineta nr.</td> <td>projektors</td><td>datoru skaits</td><td>skandas</td><td>sīkāka informācija</td>
                 </tr>
-                <tr>
-                    <td>14.</td> <td>&#x2713</td><td>1</td><td>&#x2713</td><td><a href="klases_tehnikas_db.html?k=14">sīkāka informācija</a></td>
-                </tr>
-                <tr>
-                    <td>14.</td> <td>&#x2713</td><td>1</td><td>&#x2713</td><td><a href="klases_tehnikas_db.html?k=14">sīkāka informācija</a></td>
-                 </tr>
-                 <tr>
-                  <td>64.</td> <td>&#x2713</td><td>7</td><td>-</td><td><a href="klases_tehnikas_db.html?k=64">sīkāka informācija</a></td>
-               </tr>
-                              
+                </thead>
+                <tbody class="rinda" id="trindas"></tbody>
+                                             
             </table>
-           
-    <!-- -->
+
+     <!-- -->
     <script>
         foot();
     </script>
