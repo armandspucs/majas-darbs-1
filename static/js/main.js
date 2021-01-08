@@ -2,14 +2,14 @@
 function head(title,page) {
     document.write(`<div class="wrap">
 						<div class="header">
-							<img src="img/logo.png">
+							<img src="/static/img/logo.png">
 							<h2>Datortehnikas uzskaites sistēma</h2>
 							<hr>
 				</div>
 				<div class="content">`);
     if (title != "") {
         document.write(`<a href="${page}">
-							<img class="back_btn" src="img/back.png">
+							<img class="back_btn" src="/static/img/back.png">
 							Atpakaļ
 						</a>
 						<h2 id="h2b">${title}</h2>`);
@@ -147,7 +147,6 @@ async function validateForm(form){
 }
 
 async function klasesTehnikaf() {
-    
     let kabinetaNr;
     let datoruSkaits, projektoruSkaits, skanduSkaits; 
     let telpa, tips;
@@ -205,55 +204,51 @@ async function klasesTehnikaf() {
         {
         irSkandas='&#x2713';
     }
-    let rinda = document.querySelector('.rinda');
+    let rinda = document.getElementById('rinda');
     switch (true){
         case atlasesNr == kabinetaNr  :
-            
             rinda.innerHTML += `
             <tr>
-            <td>${kabinetaNr}</td>
-            <td>${irProjektors}</td>
-            <td>${datoruSkaits}</td>
-            <td>${irSkandas}</td>
-            <td><a href="klases_tehnikas_db.html?k=${kabinetaNr}">sīkāka informācija</a> </td>
+				<td>${kabinetaNr}</td>
+				<td>${irProjektors}</td>
+				<td>${datoruSkaits}</td>
+				<td>${irSkandas}</td>
+				<td><a href="/klase/${kabinetaNr}">Informācija</a> </td>
             </tr>`;
         break;
         case vajagSkandas && skanduSkaits>0  :
-            
             rinda.innerHTML += `
             <tr>
-            <td>${kabinetaNr}</td>
-            <td>${irProjektors}</td>
-            <td>${datoruSkaits}</td>
-            <td>${irSkandas}</td>
-            <td><a href="klases_tehnikas_db.html?k=${kabinetaNr}">sīkāka informācija</a> </td>
+				<td>${kabinetaNr}</td>
+				<td>${irProjektors}</td>
+				<td>${datoruSkaits}</td>
+				<td>${irSkandas}</td>
+				<td><a href="klase/k=${kabinetaNr}">Informācija</a></td>
             </tr>`;
         break;
     
         case vajagDatoru && datoruSkaits>0  :
-            
-            rinda.innerHTML += `
+           rinda.innerHTML += `
             <tr>
-            <td>${kabinetaNr}</td>
-            <td>${irProjektors}</td>
-            <td>${datoruSkaits}</td>
-            <td>${irSkandas}</td>
-            <td><a href="klases_tehnikas_db.html?k=${kabinetaNr}">sīkāka informācija</a> </td>
+				<td>${kabinetaNr}</td>
+				<td>${irProjektors}</td>
+				<td>${datoruSkaits}</td>
+				<td>${irSkandas}</td>
+				<td><a href="klase/${kabinetaNr}">Informācija</a></td>
             </tr>`;
         break;
         case vajagProjektoru && projektoruSkaits>0  :
-            
             rinda.innerHTML += `
             <tr>
-            <td>${kabinetaNr}</td>
-            <td>${irProjektors}</td>
-            <td>${datoruSkaits}</td>
-            <td>${irSkandas}</td>
-            <td><a href="klases_tehnikas_db.html?k=${kabinetaNr}">sīkāka informācija</a> </td>
+				<td>${kabinetaNr}</td>
+				<td>${irProjektors}</td>
+				<td>${datoruSkaits}</td>
+				<td>${irSkandas}</td>
+            <td><a href="klase/${kabinetaNr}">Informācija</a></td>
             </tr>`;
         break;
         
-    }
+		}
     }
 
 }
@@ -284,15 +279,16 @@ function nomainiLaukus() {
   }
 
 
-  async function sikaakPeecNumura(a) //parāda datus tabula failā fetch_test.html
-{
+async function sikaakPeecNumura(a){
+	  //parāda datus tabula failā fetch_test.html
+
     let datiNoServera = await fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json');
     let datiJson = await datiNoServera.json();
 
     let ierakstu_skaits = datiJson.dati.length;
     //ievērojiet ka visa info ir apakšobjektā 'dati' (tāda struktūra no excel nāk)
 
-    tabulasRindas = document.querySelector('.tabulasRindas');
+    tabulasRindas = document.getElementById('rinda');
     for (i = 0; i < ierakstu_skaits; i++) {
 
        
@@ -331,16 +327,16 @@ async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.h
     let ierakstu_skaits = datiJson.dati.length;
     //ievērojiet ka visa info ir apakšobjektā 'dati' (tāda struktūra no excel nāk)
 
-    tabulasRindas = document.querySelector('.tabulasRindas');
+    tabulasRindas = document.getElementById('tabulasRindas');
 
     for (i = 0; i < ierakstu_skaits; i++) {
 
         tabulasRindas.innerHTML += `
 		<tr>
-		<td> ` + datiJson.dati[i]['tips'] + ` </td>
-		<td> ` + datiJson.dati[i]['inventaraNr'] + ` </td>
-		<td> ` + datiJson.dati[i]['name'] + ` </td>
-		<td> <a class="button" id="`+ datiJson.dati[i]['inventaraNr']+`" href="#">sīkāka informācija</a> </td>
+			<td> ` + datiJson.dati[i]['tips'] + ` </td>
+			<td> ` + datiJson.dati[i]['inventaraNr'] + ` </td>
+			<td> ` + datiJson.dati[i]['name'] + ` </td>
+			<td> <a class="button" id="`+ datiJson.dati[i]['inventaraNr']+`" href="#">sīkāka informācija</a> </td>
 		</tr>`;
     } //loop beigas
 }
