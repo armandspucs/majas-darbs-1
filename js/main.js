@@ -2,14 +2,14 @@
 function head(title,page) {
     document.write(`<div class="wrap">
 						<div class="header">
-							<img src="/static/img/logo.png">
+							<img src="img/logo.png">
 							<h2>Datortehnikas uzskaites sistēma</h2>
 							<hr>
 				</div>
 				<div class="content">`);
     if (title != "") {
         document.write(`<a href="${page}">
-							<img class="back_btn" src="/static/img/back.png">
+							<img class="back_btn" src="img/back.png">
 							Atpakaļ
 						</a>
 						<h2 id="h2b">${title}</h2>`);
@@ -72,7 +72,7 @@ function findGetParameter(parameterName) {
 
 async function getList(jsonFile, objectId, selectItem){
 	//parada datus tabula saraksta 
-	let dati = await fetch(`https://armandspucs.github.io/majas-darbs-1/data/${jsonFile}.json`);
+	let dati = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/dati/${jsonFile}`);
 	let json = await dati.json();
 	dati = json.dati;
 	let rindas = "";
@@ -84,7 +84,7 @@ async function getList(jsonFile, objectId, selectItem){
 
 async function getData(jsonFile,objectId,list,next){ 
 	//parada datus tabula faila 
-	let dati = await fetch(`https://armandspucs.github.io/majas-darbs-1/data/${jsonFile}.json`);
+	let dati = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/dati/${jsonFile}`);
 	let json = await dati.json();
 	dati = json.dati;
 	let rindas = "";
@@ -131,7 +131,7 @@ async function validateForm(form){
 	let u = document.getElementById("user").value;
 	let p = document.getElementById("password").value;
 	let rez=false;
-	let fails = await fetch(`https://armandspucs.github.io/majas-darbs-1/data/admin.json`);
+	let fails = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/dati/admin`);
 	let json = await fails.json();
 	dati = json.admin;
 	for (let i in dati){
@@ -152,9 +152,9 @@ async function klasesTehnikaf() {
     let telpa, tips;
     let irProjektors, irSkandas,vajagSkandas, vajagDatoru,vajagProjektoru;
     //let datoruDB =fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json')
-    let roomDB = await fetch('https://armandspucs.github.io/majas-darbs-1/data/room.json')
+    let roomDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/room')
     let roomJson = await roomDB.json();
-    let datoruDB = await fetch('https://armandspucs.github.io/majas-darbs-1/data/visas_tehnikas_db.json')
+    let datoruDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/visas_tehnikas_db')
     let pcJson = await datoruDB.json();
     let kabinetuSkaits=roomJson.dati.length;   
     let garums=pcJson.dati.length;
@@ -162,8 +162,8 @@ async function klasesTehnikaf() {
     vajagDatoru=document.getElementById("datori").checked;
     vajagProjektoru=document.getElementById("projektors").checked;
     //nodzēst tabulas rindas
-    let tabRindas=document.getElementById('trindas');
-    let rskaits = document.getElementById('trindas').rows.length;
+    let tabRindas=document.getElementById('rinda');
+    let rskaits = document.getElementById('rinda').rows.length;
     let tr = tabRindas.getElementsByTagName("tr");
     for (let r = 0; r < rskaits; r++) {
         tr[r].style.display = "none";
@@ -213,7 +213,7 @@ async function klasesTehnikaf() {
 				<td>${irProjektors}</td>
 				<td>${datoruSkaits}</td>
 				<td>${irSkandas}</td>
-				<td><a href="/klase/${kabinetaNr}">Informācija</a> </td>
+				<td><a href="klase.html?k=${kabinetaNr}">Informācija</a> </td>
             </tr>`;
         break;
         case vajagSkandas && skanduSkaits>0  :
@@ -223,7 +223,7 @@ async function klasesTehnikaf() {
 				<td>${irProjektors}</td>
 				<td>${datoruSkaits}</td>
 				<td>${irSkandas}</td>
-				<td><a href="klase/k=${kabinetaNr}">Informācija</a></td>
+				<td><a href="klase.html?k=${kabinetaNr}">Informācija</a></td>
             </tr>`;
         break;
     
@@ -234,7 +234,7 @@ async function klasesTehnikaf() {
 				<td>${irProjektors}</td>
 				<td>${datoruSkaits}</td>
 				<td>${irSkandas}</td>
-				<td><a href="klase/${kabinetaNr}">Informācija</a></td>
+				<td><a href="klase.html?k=${kabinetaNr}">Informācija</a></td>
             </tr>`;
         break;
         case vajagProjektoru && projektoruSkaits>0  :
@@ -244,7 +244,7 @@ async function klasesTehnikaf() {
 				<td>${irProjektors}</td>
 				<td>${datoruSkaits}</td>
 				<td>${irSkandas}</td>
-            <td><a href="klase/${kabinetaNr}">Informācija</a></td>
+            <td><a href="klase.html?k=${kabinetaNr}">Informācija</a></td>
             </tr>`;
         break;
         
@@ -282,7 +282,7 @@ function nomainiLaukus() {
 async function sikaakPeecNumura(a){
 	  //parāda datus tabula failā fetch_test.html
 
-    let datiNoServera = await fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json');
+    let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/datoruDB');
     let datiJson = await datiNoServera.json();
 
     let ierakstu_skaits = datiJson.dati.length;
@@ -321,13 +321,13 @@ async function sikaakPeecNumura(a){
 //---------------------------------------------------------------------
 async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.html
 {
-    let datiNoServera = await fetch('https://armandspucs.github.io/majas-darbs-1/data/visas_tehnikas_db.json');
+    let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/visas_tehnikas_db');
     let datiJson = await datiNoServera.json();
 
     let ierakstu_skaits = datiJson.dati.length;
     //ievērojiet ka visa info ir apakšobjektā 'dati' (tāda struktūra no excel nāk)
 
-    tabulasRindas = document.getElementById('tabulasRindas');
+    tabulasRindas = document.getElementById('rinda');
 
     for (i = 0; i < ierakstu_skaits; i++) {
 
