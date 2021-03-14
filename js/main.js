@@ -308,31 +308,17 @@ async function sikaakPeecNumura(a){
 		<br> ` + datiJson.dati[i]['piegadatajs'] + ` 
 		<br>`;
 		}
-    } //loop beigas
-
-}
-
-/*
-"id": "2",
-            "tips": "dators ",
-            "inventaraNr": "1239-541 ",
-            "iegadesGads": "2018",
-            "piegadatajs": "Sia Dators",
-            "razotajs" : "HP",
-            "procesors": "i7 ",
-            "ram": "8GB",
-            "cietaisDisks": "ssd 250GB",
-            "os": "win10"
-*/
+    } 
 
 //---------------------------------------------------------------------
 async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.html
 {
 //    let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/visas_tehnikas_db');
-    let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/api/tehnika');
+    let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/datorudb');
     let datiJson = await datiNoServera.json();
 
-    let ierakstu_skaits = datiJson.dati.length;
+    //let ierakstu_skaits = datiJson.dati.length;
+	let ierakstu_skaits = datiJson.length;
     //ievērojiet ka visa info ir apakšobjektā 'dati' (tāda struktūra no excel nāk)
 
     tabulasRindas = document.getElementById('rinda');
@@ -341,10 +327,10 @@ async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.h
 
         tabulasRindas.innerHTML += `
 		<tr>
-			<td>${datiJson.dati[i]['tips']}</td>
-			<td>${datiJson.dati[i]['inventaraNr']}</td>
-			<td>${datiJson.dati[i]['name']}</td>
-			<td><a class="button" id="${datiJson.dati[i]['id']}" href="#?id=${datiJson.dati[i]['id']}">sīkāka informācija</a> </td>
+			<td>${datiJson[i]['tips']}</td>
+			<td>${datiJson[i]['inventaraNr']}</td>
+			<td>${datiJson[i]['kabinetaNr']}</td>
+			<td><a class="button" id="${datiJson[i]['id']}" href="#?id=${datiJson[i]['id']}">sīkāka informācija</a> </td>
 		</tr>`;
     } //loop beigas
 }
