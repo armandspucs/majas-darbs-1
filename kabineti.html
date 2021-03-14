@@ -1,36 +1,34 @@
 <!DOCTYPE html>
-<html  lang="en">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
         <title>Klasēs pieejamā datortehnika-visu kabinetu tehnika</title>
         <link rel='stylesheet' href='css/style.css'>
-        <script src='js/main.js'></script>
+		<script src='js/main.js'></script>
 	</head>
 	<body>
 		<script>
 			head("Klasēs pieejamā tehnika","index.html");
 		</script>
-    <!-- -->
 		<br>
-        <div class="flex"> <!--saliek blakus kastes-->
-            <!--meklēt-->
-            <div class="col">
-               <input type="text" id="mekletKlasi" >telpas nr.</input>
-           </div>
-           <!--čekboksi-->
-            
-           <div class="col">
-				<input type="checkbox" id="datori" checked>ir datori</input><br>
-				<input type="checkbox" id="projektors">ir projektors</input>
+		<div class="flex">
+			<div class="col">
+				<label>Telpas nr.:</label>
+				<br>
+				<input type="checkbox" id="dators"onchange="klasesTehnikaf()"><label>Dators</label>
+				<br>
+				<input type="checkbox" id="projektors" onchange="klasesTehnikaf()"><label>Projektors</label>
 			</div>
 			<div class="col">
-				<input type="checkbox" id="skandas">ir skandas</input><br>
-				<input type="checkbox" id="kopetajs">ir kopētājs</input>
+				<input type="text" id="kabinets" >
+				<br>
+				<input type="checkbox" id="skandas" onchange="klasesTehnikaf()"><label>Skandas</label>
+				<br>
+				<input type="checkbox" id="kopetajs" onchange="klasesTehnikaf()">Kopētājs
 			</div>
         </div>
         <br>
         <hr></hr>
-        <input type="button" id="aizpildit" onclick="klasesTehnikaf()" value="meklē atlasīto">
             <!--tabula-->
             <table>
                 <thead>                          

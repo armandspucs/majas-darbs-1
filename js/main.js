@@ -84,7 +84,8 @@ async function getList(jsonFile, objectId, selectItem){
 
 async function getData(jsonFile,objectId,list,next){ 
 	//parada datus tabula faila 
-	let dati = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/dati/${jsonFile}`);
+//	let dati = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/dati/${jsonFile}`);
+	let dati = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/api/${jsonFile}`);
 	let json = await dati.json();
 	dati = json.dati;
 	let rindas = "";
@@ -152,9 +153,15 @@ async function klasesTehnikaf() {
     let telpa, tips;
     let irProjektors, irSkandas,vajagSkandas, vajagDatoru,vajagProjektoru;
     //let datoruDB =fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json')
-    let roomDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/room')
+    //let datoruDB =fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json')
+    let roomDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/api/kabineti')
     let roomJson = await roomDB.json();
-    let datoruDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/visas_tehnikas_db')
+    let datoruDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/api/tehnika')
+
+	
+//	let roomDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/room')
+//    let roomJson = await roomDB.json();
+//    let datoruDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/visas_tehnikas_db')
     let pcJson = await datoruDB.json();
     let kabinetuSkaits=roomJson.dati.length;   
     let garums=pcJson.dati.length;
@@ -321,7 +328,8 @@ async function sikaakPeecNumura(a){
 //---------------------------------------------------------------------
 async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.html
 {
-    let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/visas_tehnikas_db');
+//    let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/visas_tehnikas_db');
+    let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/api/tehnika');
     let datiJson = await datiNoServera.json();
 
     let ierakstu_skaits = datiJson.dati.length;
@@ -333,10 +341,10 @@ async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.h
 
         tabulasRindas.innerHTML += `
 		<tr>
-			<td> ` + datiJson.dati[i]['tips'] + ` </td>
-			<td> ` + datiJson.dati[i]['inventaraNr'] + ` </td>
-			<td> ` + datiJson.dati[i]['name'] + ` </td>
-			<td> <a class="button" id="`+ datiJson.dati[i]['inventaraNr']+`" href="#">sīkāka informācija</a> </td>
+			<td>${datiJson.dati[i]['tips']}</td>
+			<td>${datiJson.dati[i]['inventaraNr']}</td>
+			<td>${datiJson.dati[i]['name']}</td>
+			<td><a class="button" id="${datiJson.dati[i]['id']}" href="#?id=${datiJson.dati[i]['id']}">sīkāka informācija</a> </td>
 		</tr>`;
     } //loop beigas
 }

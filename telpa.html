@@ -9,7 +9,7 @@
 	<body>
 		<script>
 			let kab=findGetParameter("k");// kosaka kabinetu
-			head(kab+". klasē pieejamā tehnika","klases.html");
+			head(kab+". klasē pieejamā tehnika","kabineti.html");
 		</script>
 		<!-- -->
 		<hr></hr>
@@ -26,7 +26,8 @@
 		<!-- -->
 		<script>
 			foot();
-			getData("klase_old","rinda",["name","count","bojats","desk"],'state("rinda")');
+			//getData("klase_old","rinda",["name","count","bojats","desk"],'state("rinda")');
+			getData("klase","rinda",["name","count","bojats","desk"],'state("rinda")');
 		</script>
 	</body>
 </html>
