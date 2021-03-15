@@ -324,7 +324,6 @@ async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.h
     tabulasRindas = document.getElementById('rinda');
 
     for (i = 0; i < ierakstu_skaits; i++) {
-
         tabulasRindas.innerHTML += `
 		<tr>
 			<td>${datiJson[i]['tips']}</td>
