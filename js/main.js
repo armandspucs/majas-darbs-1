@@ -84,8 +84,8 @@ async function getList(jsonFile, objectId, selectItem){
 
 async function getData(jsonFile,objectId,list,next){ 
 	//parada datus tabula faila 
-//	let dati = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/dati/${jsonFile}`);
-	let dati = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/api/${jsonFile}`);
+	let dati = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/dati/${jsonFile}`);
+//	let dati = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/api/${jsonFile}`);
 	let json = await dati.json();
 	dati = json.dati;
 	let rindas = "";
@@ -154,9 +154,9 @@ async function klasesTehnikaf() {
     let irProjektors, irSkandas,vajagSkandas, vajagDatoru,vajagProjektoru;
     //let datoruDB =fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json')
     //let datoruDB =fetch('https://armandspucs.github.io/majas-darbs-1/data/datoruDB.json')
-    let roomDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/api/kabineti')
+    let roomDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/room')
     let roomJson = await roomDB.json();
-    let datoruDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/api/tehnika')
+    let datoruDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/room')
 
 	
 //	let roomDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/room')
@@ -292,23 +292,24 @@ async function sikaakPeecNumura(a){
     let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/datoruDB');
     let datiJson = await datiNoServera.json();
 
-    let ierakstu_skaits = datiJson.dati.length;
+    let ierakstu_skaits = datiJson.length;
     //ievērojiet ka visa info ir apakšobjektā 'dati' (tāda struktūra no excel nāk)
 
     tabulasRindas = document.getElementById('rinda');
     for (i = 0; i < ierakstu_skaits; i++) {
 
        
-		if (datiJson.dati[i]['inventaraNr']==a){
+		if (datiJson[i]['inventaraNr']==a){
 			
         tabulasRindas.innerHTML += `
 		<br>
-		<br> ` + datiJson.dati[i]['inventaraNr'] + ` 
-		<br> ` + datiJson.dati[i]['iegadesGads'] + ` 
-		<br> ` + datiJson.dati[i]['piegadatajs'] + ` 
+		<br> ` + datiJson[i]['inventaraNr'] + ` 
+		<br> ` + datiJson[i]['iegadesGads'] + ` 
+		<br> ` + datiJson[i]['piegadatajs'] + ` 
 		<br>`;
 		}
     } 
+}
 
 //---------------------------------------------------------------------
 async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.html
