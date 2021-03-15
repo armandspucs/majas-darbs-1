@@ -41,7 +41,7 @@ function meklet(lauks,myId) {
 	input = document.getElementById(myId);  
 	filter = input.value.toUpperCase();
 	console.log(filter);
-	table = document.getElementById("myTable");
+	table = document.getElementById("rinda");
 	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
 	  td = tr[i].getElementsByTagName("td")[lauks]; // noradam pec kura lauka mekleet
@@ -74,7 +74,7 @@ async function getList(jsonFile, objectId, selectItem){
 	//parada datus tabula saraksta 
 	let dati = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/dati/${jsonFile}`);
 	let json = await dati.json();
-	dati = json.dati;
+	dati = json;
 	let rindas = "";
 	for (let i in dati) {
 		rindas += `<option value="${dati[i].name}" ${(dati[i].name==selectItem?" Selected":"")}>${dati[i].name}</option>\n`;
@@ -87,7 +87,7 @@ async function getData(jsonFile,objectId,list,next){
 	let dati = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/dati/${jsonFile}`);
 //	let dati = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/api/${jsonFile}`);
 	let json = await dati.json();
-	dati = json.dati;
+	dati = json;
 	let rindas = "";
 	for (i = 0; i < dati.length; i++){
 		rindas += "<tr>";
@@ -163,10 +163,10 @@ async function klasesTehnikaf() {
 //    let roomJson = await roomDB.json();
 //    let datoruDB = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/visas_tehnikas_db')
     let pcJson = await datoruDB.json();
-    let kabinetuSkaits=roomJson.dati.length;   
-    let garums=pcJson.dati.length;
+    let kabinetuSkaits=roomJson.length;   
+    let garums=pcJson.length;
     vajagSkandas=document.getElementById("skandas").checked;
-    vajagDatoru=document.getElementById("datori").checked;
+    vajagDatoru=document.getElementById("dators").checked;
     vajagProjektoru=document.getElementById("projektors").checked;
     //nodzēst tabulas rindas
     let tabRindas=document.getElementById('rinda');
@@ -176,19 +176,19 @@ async function klasesTehnikaf() {
         tr[r].style.display = "none";
     }
     //aizpildīt tabulas rindas
-    let atlasesNr=document.getElementById('mekletKlasi').value;
+    let atlasesNr=document.getElementById('kabinets').value;
     //console.log(atlasesNr);
     for(let j=0;j<kabinetuSkaits;j++){
         irProjektors='-';
         irSkandas='-';
-        kabinetaNr=roomJson.dati[j]['name'];
+        kabinetaNr=roomJson[j]['name'];
         datoruSkaits=0;
         projektoruSkaits=0;
         skanduSkaits=0;
         
     for(let i=0;i<garums;i++){
-       telpa=pcJson.dati[i]['name'];
-        tips=pcJson.dati[i]['tips'];
+       telpa=pcJson[i]['name'];
+        tips=pcJson[i]['tips'];
        if(telpa==kabinetaNr && tips=="dators ")
                {
             datoruSkaits++;
@@ -318,7 +318,7 @@ async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.h
     let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/datorudb');
     let datiJson = await datiNoServera.json();
 
-    //let ierakstu_skaits = datiJson.dati.length;
+    //let ierakstu_skaits = datiJson.length;
 	let ierakstu_skaits = datiJson.length;
     //ievērojiet ka visa info ir apakšobjektā 'dati' (tāda struktūra no excel nāk)
 

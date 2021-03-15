@@ -32,7 +32,15 @@
 				</th>
             </tr>
         </thead>
-		<tbody id="myTable">
+		<thead>
+			<tr>
+				<td colspan=4>Problēma:<textarea name=""  rows="1" cols="50"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan=4><input type="button"  class="button" value="Pieteikt" onclick=""></td>
+			</tr>
+		</thead>
+		<tbody id="rinda">
 			<tr>
 				<td><input type="checkbox"></td>
 				<td>Printeris</td>
@@ -53,21 +61,15 @@
 			</tr>
 
 		</tbody>
-		<thead>
-			<tr>
-				<td colspan=4>Problēma:<textarea name=""  rows="1" cols="50"></textarea></td>
-			</tr>
-			<tr>
-				<td colspan=4><input type="button"  class="button" value="Pieteikt" onclick=""></td>
-			</tr>
-		</thead>
+
     </table>
 </form>
     <!-- -->
     <script>
         foot();
-		getList("unity_type","tehnika", "");
+		getList("unit","tehnika", "");
 		getList("room","myCab", "");
+		getData("datorudb","rinda",["id","tips","inventaraNr","kabinetaNr"]);
 	</script>
 </body>
 

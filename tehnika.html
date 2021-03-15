@@ -15,20 +15,15 @@
     <!-- -->
     <div class="row">
         <div class="colUz3">
-            <select id="mySelect" onchange="meklet(0, 'mySelect')">
-                <option disabled selected hidden></option>
-                <option value="">Viss saraksts</option>
-                <option value="printeris">printeris</option>
-                <option value="dators">dators</option>
-                <option value="tumbas">tumbas</option>
-            </select>
-
+			<select id="myCab" onchange ="meklet(2, this.id)" alt="Mekēt pēc kabineta">
+				<option value="">Viss saraksts</option>
+			</select>
             <p id="demo"></p>
             <!--*************************** -->
         </div>
 
         <div class="colUz3">
-            <input type="text" placeholder="Mekēt pēc inventāra numura" id="myInput" onkeyup="meklet(1,'myInput')">
+            <input type="text" placeholder="Mekēt pēc inventāra numura" id="myInput" onkeyup="meklet(1,this.id)">
         </div>
         <div class="colUz3">
             <a class="button" href="pievienot.html">pievienot tehniku</a>
@@ -50,7 +45,10 @@
     </table>
     <script>
         foot();
-        raditVisasTehnikasDB();
+        //raditVisasTehnikasDB();
+		getList("unit","tehnika", "");
+		getList("room","myCab", "");
+		getData("datorudb","rinda",["tips","inventaraNr","kabinetaNr","note"]);
     </script>
 </body>
 </html>
