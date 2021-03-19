@@ -19,7 +19,7 @@
                 <label for="tehnika">Datortehnikas veids:</label>
             </div>
             <div class="col">
-                <select name="tehnika" id="tehnika" onchange="nomainiLaukus()">
+                <select name="tehnika" id="tehnika" onchange="nomainiLaukus(this.value)">
 			<!-- <select id="myCab" onchange ="meklet(2, this.id)" alt="Mekēt pēc kabineta"> -->
 				<!-- <option value="">Viss saraksts</option> -->
 			</select>
@@ -30,24 +30,44 @@
  -->        
         <br><br>
 		<hr></hr>
-        <!---->
-             <p id="datortehnika">Izvēlētā tehnika</p>
-            <button class="nosaukumi" for="dati1"id="nos1">parametrs</button>
-            <input class="dati" type="text" id="dati1"><br>
-            <button class="nosaukumi" for="dati1"id="nos2">parametrs</button>
-            <input class="dati" type="text" id="dati2"><br>
-            <button class="nosaukumi" for="dati1"id="nos3">parametrs</button>
-            <input class="dati" type="text" id="dati3"><br>
-            <button class="nosaukumi" for="dati1"id="nos4">parametrs</button>
-            <input class="dati" type="text" id="dati4"><br>    
-            <br>
+        <p id="datortehnika">dators</p>
+        <div class="flex1"> <!--saliek blakus kastes-->            
+            <div class="col">            
+                <button class="nosaukumi" id="bnos1">Id</button>
+                <input class="dati" type="text" id="inos1" name="id" ><br>
+                <button class="nosaukumi" id="bnos2">Inventāra nr</button>
+                <input class="dati" type="text" id="inos2" name="inventaraNR" ><br>
+                <button class="nosaukumi" id="bnos3">Nosaukums</button>
+                <input class="dati" type="text" id="inos3" name="nosaukums" ><br>
+                <button class="nosaukumi" id="bnos4">Iegādes gads</button>
+                <input class="dati" type="number" id="inos4" name="iegadesGads" ><br>
+                <button class="nosaukumi" id="bnos5">Piegādātājs</button>
+                <input class="dati" type="text" id="inos5" name="piegadatajs" ><br> 
+                <button class="nosaukumi" id="bnos6">Ražotājs</button>
+                <input class="dati" type="text" id="inos6" name="razotajs"><br> 
+            </div>
+            <div class="col">            
+                <input class="nosaukumi buttons" type="button" id="bnos7" value="Kabineta nr.">
+                <input class="dati" type="text" id="inos7" name="kabinetaNr" ><br>
+                <input class="nosaukumi buttons" type="button" id="bnos8" value="Atbildīgais">
+                <input class="dati" type="text" id="inos8" name="atbildigais" ><br>
+				<input class="nosaukumi buttons" type="button" id="bnos9" value="Info1">
+				<input class="dati" type="text" id="inos9" name="info1" ><br>
+				<input class="nosaukumi buttons" type="button" id="bnos10" value="Info2">
+				<input class="dati" type="text" id="inos10" name="info2" ><br>
+				<input class="nosaukumi buttons" type="button" id="bnos11" value="Info3">
+				<input class="dati" type="text" id="inos11" name="Info3" ><br> 
+				<input class="nosaukumi buttons" type="button" id="bnos12" value="Info4">
+				<input class="dati" type="text" id="inos12" name="Info4"><br>
+            </div>
+        </div>
 			<hr></hr>     
             <input type="button" id="saglabat" value="Saglabāt"> 
     <!-- -->
     <script>
         foot();
 		getList("unit","tehnika", "Dators");
-		nomainiLaukus()
+		nomainiLaukus("Dators");
     </script>
 </body>
 

@@ -107,7 +107,7 @@ select {
     margin-bottom: 12px;
 }
 
-button {
+.buttons {
     background-position: 10px 10px;
     background-repeat: no-repeat;
     width: 100%;
@@ -195,11 +195,11 @@ button {
 }
 
 .nosaukumi {
-    width: 15%;
+    width: 25%;
 }
 
 .dati {
-    width: 40%;
+    width: 70%;
     height: 29px;
 }
 
@@ -224,6 +224,36 @@ button {
     text-align: center;
     }
 
+.flex1 {
+        display: flex;
+        width: 100%;
+        gap: 10px;
+    }
 
+.col {
+    width: 50%;
+}
 
+.col1 {
+    width: 11%;
+}
+
+.button1 {
+    background: gray;
+    color: white;
+    width: 20%;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+.neradit{
+    display: none;
+  }
+.radit{
+    display: block;
+  }
+  
 /*Andrejs stili beidzas*/

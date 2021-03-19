@@ -127,24 +127,22 @@ function state(tableID){
 }
 
 
-async function validateForm(form){
-	//paroles parbaude
+async function validateForms(form){
+
 	let u = document.getElementById("user").value;
 	let p = document.getElementById("password").value;
 	let rez=false;
-	let fails = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/dati/admin`);
-	let json = await fails.json();
-	dati = json.admin;
-	for (let i in dati){
-		if(dati[i].nik==u && dati[i].pwd==p){
-			rez=true;
+	let fails = await fetch(`https://majas-darbs-1-db.uldisgrunde.repl.co/admin/`, {
+			method:"POST",
+			headers: {
+				'Content-Type': 'application/json'
+			}
 		}
-	}
-	if(rez){
-		form.submit();
-	}else{
-		alert("Aizpildiet korekti laukus!");
-	}
+	);
+	let json = await fails.json();
+	dati = json;
+	//dati = json.admin;
+	alert(dati);
 }
 
 async function klasesTehnikaf() {
@@ -186,32 +184,26 @@ async function klasesTehnikaf() {
         projektoruSkaits=0;
         skanduSkaits=0;
         
-    for(let i=0;i<garums;i++){
-       telpa=pcJson[i]['name'];
-        tips=pcJson[i]['tips'];
-       if(telpa==kabinetaNr && tips=="dators ")
-               {
-            datoruSkaits++;
-        }
-        if(telpa==kabinetaNr && tips=="projektors ")
-            {
-            projektoruSkaits++;
-        }
-        if(telpa==kabinetaNr && tips=="skandas ")
-            {
-        skanduSkaits++;
-        }  
-
-    }
-    if (projektoruSkaits>0)
-        {
-        irProjektors='&#x2713';
-    }
-    if (skanduSkaits>0)
-        {
-        irSkandas='&#x2713';
-    }
-    let rinda = document.getElementById('rinda');
+	for(let i=0;i<garums;i++){
+	   telpa=pcJson[i]['name'];
+		tips=pcJson[i]['tips'];
+		if(telpa==kabinetaNr && tips=="dators "){
+			datoruSkaits++;
+		}
+		if(telpa==kabinetaNr && tips=="projektors "){
+			projektoruSkaits++;
+		}
+		if(telpa==kabinetaNr && tips=="skandas "){
+			skanduSkaits++;
+		}
+	}
+	if (projektoruSkaits>0){
+		irProjektors='&#x2713';
+	}
+	if (skanduSkaits>0){
+		irSkandas='&#x2713';
+	}
+	let rinda = document.getElementById('rinda');
     switch (true){
         case atlasesNr == kabinetaNr  :
             rinda.innerHTML += `
@@ -256,83 +248,101 @@ async function klasesTehnikaf() {
         break;
         
 		}
-    }
+	}
 
 }
 
-function nomainiLaukus() {
-    var x = document.getElementById("tehnika").value;  
-    document.getElementById("datortehnika").innerHTML = x;
-    switch  (x){
-        case 'dators':
-        document.getElementById("nos1").textContent = "Procesors";
-        document.getElementById("nos2").textContent = "RAM";
-        document.getElementById("nos3").textContent = "Cietais disks";
-        document.getElementById("nos4").textContent = "OS";
-        break;
-        case 'monitors':
-        document.getElementById("nos1").textContent = "Ražotājs";
-        document.getElementById("nos2").textContent = "Izmērs";
-        document.getElementById("nos3").textContent = "Video ieejas";
-        document.getElementById("nos4").textContent = "Skaņa";
-        break;
-        case 'printeris':
-        document.getElementById("nos1").textContent = "Ražotājs";
-        document.getElementById("nos2").textContent = "tips";
-        document.getElementById("nos3").textContent = "Papīra izmērs";
-        document.getElementById("nos4").textContent = "toneris";
-        break;
-    }
-  }
+async function nomainiLaukus(x) {
+	let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/unit');
+	let datiJson = await datiNoServera.json();
+	document.getElementById("bnos9").value =datiJson[0]["info1"] ;
+	document.getElementById("bnos10").value =datiJson[0]["info2"] ;
+	document.getElementById("bnos11").value =datiJson[0]["info3"] ;
+	document.getElementById("bnos12").value =datiJson[0]["info4"] ;
+}
+
 
 
 async function sikaakPeecNumura(a){
-	  //parāda datus tabula failā fetch_test.html
-
-    let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/datoruDB');
-    let datiJson = await datiNoServera.json();
-
-    let ierakstu_skaits = datiJson.length;
-    //ievērojiet ka visa info ir apakšobjektā 'dati' (tāda struktūra no excel nāk)
-
-    tabulasRindas = document.getElementById('rinda');
-    for (i = 0; i < ierakstu_skaits; i++) {
-
-       
+	//parāda datus tabula failā fetch_test.html
+	let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/datoruDB');
+	let datiJson = await datiNoServera.json();
+	let ierakstu_skaits = datiJson.length;
+//ievērojiet ka visa info ir apakšobjektā 'dati' (tāda struktūra no excel nāk)
+	tabulasRindas = document.getElementById('rinda');
+	for (i = 0; i < ierakstu_skaits; i++) {
 		if (datiJson[i]['inventaraNr']==a){
-			
-        tabulasRindas.innerHTML += `
-		<br>
-		<br> ` + datiJson[i]['inventaraNr'] + ` 
-		<br> ` + datiJson[i]['iegadesGads'] + ` 
-		<br> ` + datiJson[i]['piegadatajs'] + ` 
-		<br>`;
-		}
-    } 
-}
+			tabulasRindas.innerHTML += `
+			<br>
+			<br> ` + datiJson[i]['inventaraNr'] + ` 
+			<br> ` + datiJson[i]['iegadesGads'] + ` 
+			<br> ` + datiJson[i]['piegadatajs'] + ` 
+			<br>`;
+			}
+		} 
+	}
 
 //---------------------------------------------------------------------
-async function raditVisasTehnikasDB() //parāda datus tabula failā fetch_test.html
-{
-//    let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/visas_tehnikas_db');
-    let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/datorudb');
-    let datiJson = await datiNoServera.json();
-
-    //let ierakstu_skaits = datiJson.length;
+async function raditVisasTehnikasDB(){ 
+	let datiNoServera = await fetch('https://majas-darbs-1-db.uldisgrunde.repl.co/dati/datorudb');
+	let datiJson = await datiNoServera.json();
+	//let ierakstu_skaits = datiJson.length;
 	let ierakstu_skaits = datiJson.length;
-    //ievērojiet ka visa info ir apakšobjektā 'dati' (tāda struktūra no excel nāk)
-
-    tabulasRindas = document.getElementById('rinda');
-
-    for (i = 0; i < ierakstu_skaits; i++) {
-        tabulasRindas.innerHTML += `
+	//ievērojiet ka visa info ir apakšobjektā 'dati' (tāda struktūra no excel nāk)
+	tabulasRindas = document.getElementById('rinda');
+	for (i = 0; i < ierakstu_skaits; i++) {
+		tabulasRindas.innerHTML += `
 		<tr>
 			<td>${datiJson[i]['tips']}</td>
 			<td>${datiJson[i]['inventaraNr']}</td>
 			<td>${datiJson[i]['kabinetaNr']}</td>
 			<td><a class="button" id="${datiJson[i]['id']}" href="#?id=${datiJson[i]['id']}">sīkāka informācija</a> </td>
 		</tr>`;
-    } //loop beigas
+	} //loop beigas
 }
+
+async function pievieno_tehniku(){
+	let tehnikasIzvele=document.getElementById('#tehnika').value;
+	let requestBodyJson = {
+		"tips": document.getElementById('tehnika').value, 
+		"inventaraNr": document.getElementById('inos2').value,
+		"nosaukums": document.getElementById('inos3').value,
+		"iegadesGads": document.getElementById('inos4').value,
+		"piegadatajs": document.getElementById('inos5').value,
+		"razotajs" : document.getElementById('inos6').value,
+		"kabinetaNr" : document.getElementById('inos7').value,
+		"atbildigais" : document.getElementById('inos8').value,
+		"info1": document.getElementById('inos9').value,
+		"info2": document.getElementById('inos10').value,
+		"info3": document.getElementById('inos11').value,
+		"info4": document.getElementById('inos12').value
+	}
+	let requestBodyString = JSON.stringify(requestBodyJson);
+	let request = await fetch('https://andrejstehnika.amikis.repl.co/api/pievienot',
+		{
+		method:"POST",
+			headers:
+			{
+			'Content-Type': 'application/json'
+			},
+			body:requestBodyString
+		}
+	)
+	.then(response => response.json())
+	.then(data => {
+			if(data.status == 0) {
+				alert("Kļūda")
+			}
+			if(data.status == 1) {
+				alert("ieraksts pievienots")
+			}
+		}
+	)
+	location.reload();
+}
+
+
+
+
 
 
